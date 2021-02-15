@@ -8,7 +8,7 @@ const slice = createSlice({
     isLoggedIn: false,
   } as IAuthStore,
   reducers: {
-    loginSuccess: (state) => {
+    loginSuccess: (state, action) => {
       state.isLoggedIn = true;
     },
     logoutSuccess: (state) => {
