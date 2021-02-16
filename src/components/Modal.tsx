@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { styled } from 'styles';
+import { styled } from '../styles';
 
 import { CrossIcon } from './icons';
 import { H2 } from "./Text";

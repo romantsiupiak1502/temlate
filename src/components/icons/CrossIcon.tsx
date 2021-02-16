@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { theme } from 'styles';
+import { theme } from '../../styles';
 
 export const CrossIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
