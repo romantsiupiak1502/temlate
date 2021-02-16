@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import { styled } from '../styles';
 
@@ -18,16 +18,16 @@ const IButtonWrapper = styled.div`
 
 interface IconButtonProps {
   text: string,
-  icon: ReactElement,
+  icon: React.ReactElement,
   onClick: () => void,
 }
 
 export const IconButton: React.FC<IconButtonProps> = props => {
-  const { text, icon,  onClick} = props;
+  const { text, icon, onClick } = props;
     return (
         <IButtonWrapper onClick={onClick}>
           {icon}
           <H3>{text}</H3>
         </IButtonWrapper>
     );
-}
+};
