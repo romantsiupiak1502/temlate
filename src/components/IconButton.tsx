@@ -1,32 +1,32 @@
 import React from 'react';
 
-import { styled, theme } from '../styles';
+import { styled } from '../styles';
+import { H3 } from "./Text";
 import { MdSmokeFree } from 'react-icons/md';
 
 const IButtonWrapper = styled.div`
   width: max-content;
   height: max-content;
-  padding: 8px 32px;
+  padding-top: 8px;
+  padding-left: 32px;
   border-radius: 10px;
-  background-color: ${theme.colors.gray};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 `;
 
-const Text = styled.div`
-  padding-left: 10px;
-  font-size: 120%;
-`;
+type Props = {
+  text: string,
+  icon: () => void,
+  onClick: ()=> void,
+}
 
-export const IconButton = () => {
+export const IconButton: React.FC<Props>= ({text, icon, onClick}) => {
     return (
-      <>
-        <IButtonWrapper onClick={()=>{alert("Do not smoke, by healthy")}}>
-            <MdSmokeFree size={'30px'}/>
-            <Text>Don't Smoke</Text>
+        <IButtonWrapper onClick={onClick}>
+          {icon()}
+          <H3>{text}</H3>
         </IButtonWrapper>
-      </>
     );
 }
