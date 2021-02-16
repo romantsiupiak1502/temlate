@@ -1,0 +1,1 @@
+export { MdSmokeFree as NoSmokeIcon } from "react-icons/md";

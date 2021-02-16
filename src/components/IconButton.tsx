@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { styled } from '../styles';
+
 import { H3 } from "./Text";
-import { MdSmokeFree } from 'react-icons/md';
 
 const IButtonWrapper = styled.div`
   width: max-content;
@@ -16,16 +16,17 @@ const IButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-type Props = {
+interface IconButtonProps {
   text: string,
-  icon: () => void,
-  onClick: ()=> void,
+  icon: ReactElement,
+  onClick: () => void,
 }
 
-export const IconButton: React.FC<Props>= ({text, icon, onClick}) => {
+export const IconButton: React.FC<IconButtonProps> = props => {
+  const { text, icon,  onClick} = props;
     return (
         <IButtonWrapper onClick={onClick}>
-          {icon()}
+          {icon}
           <H3>{text}</H3>
         </IButtonWrapper>
     );

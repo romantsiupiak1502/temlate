@@ -1,12 +1,11 @@
 import React from 'react';
-import { MdSmokeFree } from '../../components';
-
-import {IconButton} from "../../components";
+import { IconButton, NoSmokeIcon } from '../../components';
 
 export const UnauthorizedRoot: React.FC = () => {
   return (
     <>
-      <IconButton text='Do not Smoke' icon={ () => <MdSmokeFree size={'25px'}/>} onClick={()=>{}}/>
+      <IconButton text='Do not Smoke' icon={<NoSmokeIcon size={'25px'}/>} onClick={()=>{}}/>
     </>
   );
 };
+

@@ -1,1 +1,0 @@
-export { MdSmokeFree} from "react-icons/md";
