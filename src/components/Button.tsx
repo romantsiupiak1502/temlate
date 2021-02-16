@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styled } from 'styles';
+import { styled } from '../styles';
 
 import { ButtonText } from './Text';
 

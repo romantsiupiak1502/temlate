@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { css, styled } from 'styles';
+import { css, styled } from '../styles';
 
 import { EyeCrossedIcon, EyeIcon } from './icons';
 import { IFormComponent, withFormField } from './withFormField';
