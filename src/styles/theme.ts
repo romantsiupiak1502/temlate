@@ -17,6 +17,5 @@ export const theme: ITheme = {
     white: '#FFFFFF',
     gray: '#A3A3A3',
     backgroundGray: '#FCFAFF',
-
   }
 }

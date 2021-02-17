@@ -4,7 +4,7 @@ import { styled } from '../../styles';
 
 import { Login } from "../Login";
 
-const Container = styled.div`
+const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -15,8 +15,8 @@ const Container = styled.div`
 
 export const UnauthorizedRoot: React.FC = () => {
   return (
-    <Container>
+    <Wrapper>
       <Login />
-    </Container>
+    </Wrapper>
   );
 };
