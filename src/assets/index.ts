@@ -1,1 +1,1 @@
-export {default as LoginLandscapeImage } from './img/loginLandscape.jpg';
+export { default as LoginLandscapeImage } from './img/loginLandscape.jpg';

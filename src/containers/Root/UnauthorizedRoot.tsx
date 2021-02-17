@@ -1,8 +1,9 @@
 import React from 'react';
+import { Route, Switch } from "react-router-dom";
 
 import { styled } from '../../styles';
 
-import { Login } from "../Login";
+import { Greeting } from "../Login";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -16,7 +17,9 @@ const Wrapper = styled.div`
 export const UnauthorizedRoot: React.FC = () => {
   return (
     <Wrapper>
-      <Login />
+      <Switch>
+        <Route path={'/'} render={ () => <Greeting /> } />
+      </Switch>
     </Wrapper>
   );
 };

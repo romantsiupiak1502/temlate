@@ -17,7 +17,6 @@ const FormStyled = styled(Form)`
   width: 400px;
   height: 600px;
   display: flex;
-  margin: 0 auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;

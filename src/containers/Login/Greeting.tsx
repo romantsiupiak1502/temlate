@@ -12,12 +12,16 @@ const Wrapper = styled.div`
   display: flex;
   box-shadow: 5px 5px 5px gray;
   border: 1px solid;
+  border: ${({theme})=>theme.colors.black};
   background-color: ${({theme})=> theme.colors.white};
 `;
 
 const InputWrapper = styled.div`
   width: 500px;
   height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Picture = styled.img`
@@ -25,13 +29,11 @@ const Picture = styled.img`
   height: 600px;
 `;
 
-export const Login = () => {
+export const Greeting = () => {
   return (
     <Wrapper>
       <InputWrapper>
-        <Switch>
-          <Route path={'/'} render={ () => <LoginForm /> } />
-        </Switch>
+        <LoginForm />
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>
     </Wrapper>
