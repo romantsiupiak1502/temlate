@@ -2,7 +2,7 @@ import { FieldProps, FormikHandlers, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { styled, theme } from 'styles';
+import { styled, theme } from '../styles';
 
 import { H4 } from './Text';
 

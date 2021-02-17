@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { css, styled } from 'styles';
+import { css, styled } from '../styles';
 
 import { EyeCrossedIcon, EyeIcon } from './icons';
 import { IFormComponent, withFormField } from './withFormField';
@@ -64,8 +64,8 @@ const PasswordInputWrapper = styled.div`
 
   .right-icon {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 28px;
+    right: 1px;
   }
 `;
 
