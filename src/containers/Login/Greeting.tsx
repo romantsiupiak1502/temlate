@@ -1,10 +1,9 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
-
 import { styled } from '../../styles';
+
 import { LoginLandscapeImage } from "../../assets";
 
-import { LoginForm } from "./LoginForm";
+import { RegistrationForm } from "./RegistrationForm";
 
 const Wrapper = styled.div`
   width: 1000px;
@@ -32,7 +31,7 @@ export const Greeting = () => {
   return (
     <Wrapper>
       <InputWrapper>
-        <LoginForm />
+        <RegistrationForm />
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>
     </Wrapper>

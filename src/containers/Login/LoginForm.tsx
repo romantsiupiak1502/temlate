@@ -4,15 +4,15 @@ import { Field, Form, Formik } from "formik";
 import { styled } from '../../styles';
 import { Button, InputField, PasswordInput } from "../../components";
 
-const PasswordInputStyled = styled(PasswordInput)`
+export const PasswordInputStyled = styled(PasswordInput)`
   margin-top: 24px;
 `;
 
-const SubmitButton = styled(Button)`
+export const SubmitButton = styled(Button)`
   margin-top: 32px;
 `;
 
-const FormStyled = styled(Form)`
+export const FormStyled = styled(Form)`
   width: 400px;
   height: 600px;
   display: flex;
