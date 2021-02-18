@@ -11,8 +11,7 @@ const Wrapper = styled.div`
   height: 600px;
   display: flex;
   box-shadow: 5px 5px 5px gray;
-  border: 1px solid;
-  border: ${({theme})=>theme.colors.black};
+  border: 1px solid ${({theme})=>theme.colors.black};
   background-color: ${({theme})=> theme.colors.white};
 `;
 

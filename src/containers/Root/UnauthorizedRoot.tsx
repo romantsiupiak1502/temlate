@@ -18,7 +18,7 @@ export const UnauthorizedRoot: React.FC = () => {
   return (
     <Wrapper>
       <Switch>
-        <Route path={'/'} render={ () => <Greeting /> } />
+        <Route path={'/'} component={Greeting} />
       </Switch>
     </Wrapper>
   );

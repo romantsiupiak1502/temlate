@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, Form, Formik } from "formik";
 
 import { styled } from '../../styles';
-
 import { Button, InputField, PasswordInput } from "../../components";
 
 const PasswordInputStyled = styled(PasswordInput)`
