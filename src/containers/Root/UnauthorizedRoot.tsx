@@ -1,11 +1,25 @@
 import React from 'react';
-import { IconButton, NoSmokeIcon } from '../../components';
+import { Route, Switch } from "react-router-dom";
+
+import { styled } from '../../styles';
+
+import { Greeting } from "../Login";
+
+const Wrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({theme})=> theme.colors.backgroundGray};
+`;
 
 export const UnauthorizedRoot: React.FC = () => {
   return (
-    <>
-      <IconButton text='Do not Smoke' icon={<NoSmokeIcon size={'25px'}/>} onClick={()=>{}}/>
-    </>
+    <Wrapper>
+      <Switch>
+        <Route path={'/'} component={Greeting} />
+      </Switch>
+    </Wrapper>
   );
 };
-
