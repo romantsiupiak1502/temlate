@@ -17,7 +17,7 @@ export const theme: ITheme = {
     black: '#000000',
     white: '#FFFFFF',
     gray: '#A3A3A3',
-    gradient1: '#d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa',
-    gradient2: '#ca4040, #c13958, #b13b6b, #9b417a, #824782, #6e4b83, #5b4d81, #4a4e7c, #3d4e75, #2f4b62, #2f4858',
+    gradient1: '#ffafbd, #ffb3b4, #ffb7ac, #ffbda5, #ffc3a0',
+    gradient2: '#2193b0, #37a3bf, #4ab3ce, #5cc4de, #6dd5ed',
   }
 }
