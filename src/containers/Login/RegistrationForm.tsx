@@ -19,7 +19,7 @@ export const RegistrationForm = () => {
       <FormStyled>
         <Field name="email" placeholder="Enter your email" component={ InputField }/>
         <Field name="password" placeholder="Enter your password" component={ PasswordInputStyled }/>
-        <Field name="password" placeholder="Enter your password" component={ PasswordInputStyled }/>
+        <Field name="repeatPassword" placeholder="Repeat your password" component={ PasswordInputStyled }/>
         <SubmitButton type="submit" text='Sing up' onClick={ () => {
         } } />
       </FormStyled>
