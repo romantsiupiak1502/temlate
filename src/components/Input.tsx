@@ -64,8 +64,8 @@ const PasswordInputWrapper = styled.div`
 
   .right-icon {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 32px;
+    right: 8px;
   }
 `;
 
