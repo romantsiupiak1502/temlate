@@ -29,30 +29,24 @@ const AboutUsWrapper = styled.div`
   height: 250px;
   background-color: ${ ({theme}) => theme.colors.primary };
   opacity: 0.65;
-  left: 30%;
-  position: absolute;
   padding: 20px;
   color: ${ ({ theme }) => theme.colors.white };
 `;
 
-const TeamImage = styled.img`
-  align-items: flex-end;
-  margin-right: 10%;
-`;
-
-export const AboutUs = () => {
+export const AboutUs: React.FC = () => {
   return (
     <Wrapper>
       <TitleWrapper>It's time to tell you about us</TitleWrapper>
       <ContentWrapper>
         <AboutUsWrapper>
           <H1>About us</H1>
-          <br/>
-          <H3>Hello, we are a group of young developers who are happy to welcome you to our social network.
-            If you have not yet registered, do not hesitate and try our product soon, and if you have
-            tried, enjoy it.</H3>
+          <div>
+            <H3>Hello, we are a group of young developers who are happy to welcome you to our social network.
+              If you have not yet registered, do not hesitate and try our product soon, and if you have
+              tried, enjoy it.</H3>
+          </div>
         </AboutUsWrapper>
-        <TeamImage src={AboutUsTeamImage} />
+        <img src={AboutUsTeamImage} />
       </ContentWrapper>
     </Wrapper>
   );
