@@ -1,9 +1,9 @@
 import React from 'react';
-import { styled } from '../../styles';
 
+import { styled } from '../../styles';
 import { LoginLandscapeImage } from "../../assets";
 
-import { RegistrationForm } from "./RegistrationForm";
+import { RegistrationForm } from './RegistrationForm';
 
 const Wrapper = styled.div`
   width: 1000px;
