@@ -6,3 +6,4 @@ export * from './icons';
 export * from './IconButton';
 export * from './UserAvatar';
 export * from './TextButton';
+export * from './Tabs';
