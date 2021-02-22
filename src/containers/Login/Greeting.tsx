@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+
 import { LoginLandscapeImage } from '../../assets';
-import { Tab } from '../../components';
+import { TabsWrapper, Tab } from '../../components';
 import { LoginRegistrationConst } from '../../consts';
 
 import { styled } from '../../styles';
@@ -30,41 +31,33 @@ const Picture = styled.img`
   height: 600px;
 `;
 
-const TabsWrapper = styled.div`
-  width: 100%;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const Greeting = () => {
 
-  const [currentTab, setCurrentTab] = useState(LoginRegistrationConst.LOGIN);
+  const [activeTab, setActiveTab] = useState(LoginRegistrationConst.LOGIN);
 
-  const switchTab = () => {
-    switch(currentTab) {
+  const switchTab = useMemo(() => {
+    switch (activeTab) {
       case LoginRegistrationConst.LOGIN:
         return <LoginForm />
       case LoginRegistrationConst.REGISTRATION:
         return <></>
     }
-  }
+  }, [activeTab]);
 
   return (
     <Wrapper>
       <InputWrapper>
         <TabsWrapper>
           <Tab
-            onClick={ () => {setCurrentTab(LoginRegistrationConst.LOGIN) }}
-            isActive={ currentTab===LoginRegistrationConst.LOGIN }
+            onClick={ () => setActiveTab(LoginRegistrationConst.LOGIN) }
+            isActive={ activeTab === LoginRegistrationConst.LOGIN }
             text='Sign in' />
           <Tab
-            onClick={ () => {setCurrentTab( LoginRegistrationConst.REGISTRATION) } }
-            isActive={ currentTab===LoginRegistrationConst.REGISTRATION }
+            onClick={ () => setActiveTab( LoginRegistrationConst.REGISTRATION) }
+            isActive={ activeTab === LoginRegistrationConst.REGISTRATION }
             text='Sign up' />
         </TabsWrapper>
-        { switchTab() }
+        { switchTab }
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>
     </Wrapper>

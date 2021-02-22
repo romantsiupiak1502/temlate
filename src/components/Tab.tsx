@@ -8,8 +8,16 @@ interface ITabStyledProps {
   isActive: boolean;
 }
 
-const TabStyled = styled(H3)<ITabStyledProps>`
-  padding-left: 40px;
+export const TabsWrapper = styled.div`
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TabStyled = styled.div<ITabStyledProps>`
+  padding: 16px;
   color: ${ ({theme, isActive}) => isActive ? theme.colors.black : theme.colors.gray };
   border-bottom: 2px solid ${ ({theme, isActive}) => isActive ? theme.colors.black : theme.colors.white };
   cursor: pointer;
@@ -24,8 +32,10 @@ interface ITabProps {
 export const Tab: React.FC<ITabProps> = props => {
   const { onClick, isActive, text } = props;
   return (
-    <TabStyled className={"Selected"} onClick={onClick} isActive={isActive}>
-      {text}
+    <TabStyled onClick={onClick} isActive={isActive}>
+      <H3>
+        {text}
+      </H3>
     </TabStyled>
   );
 }
