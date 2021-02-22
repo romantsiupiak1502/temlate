@@ -7,3 +7,4 @@ export * from './IconButton';
 export * from './UserAvatar';
 export * from './TextButton';
 export * from './Tab';
+export * from './TabsContainer';

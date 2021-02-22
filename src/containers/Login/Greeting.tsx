@@ -1,9 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 
 import { LoginLandscapeImage } from '../../assets';
-import { TabsWrapper, Tab } from '../../components';
+import { TabsContainer, Tab } from '../../components';
 import { LoginRegistrationConst } from '../../consts';
-
 import { styled } from '../../styles';
 
 import { LoginForm } from "./LoginForm";
@@ -33,9 +32,9 @@ const Picture = styled.img`
 
 export const Greeting = () => {
 
-  const [activeTab, setActiveTab] = useState(LoginRegistrationConst.LOGIN);
+  const [activeTab, setActiveTab] = React.useState(LoginRegistrationConst.LOGIN);
 
-  const switchTab = useMemo(() => {
+  const activeForm = React.useMemo(() => {
     switch (activeTab) {
       case LoginRegistrationConst.LOGIN:
         return <LoginForm />
@@ -47,7 +46,7 @@ export const Greeting = () => {
   return (
     <Wrapper>
       <InputWrapper>
-        <TabsWrapper>
+        <TabsContainer>
           <Tab
             onClick={ () => setActiveTab(LoginRegistrationConst.LOGIN) }
             isActive={ activeTab === LoginRegistrationConst.LOGIN }
@@ -56,8 +55,8 @@ export const Greeting = () => {
             onClick={ () => setActiveTab( LoginRegistrationConst.REGISTRATION) }
             isActive={ activeTab === LoginRegistrationConst.REGISTRATION }
             text='Sign up' />
-        </TabsWrapper>
-        { switchTab }
+        </TabsContainer>
+        { activeForm }
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>
     </Wrapper>
