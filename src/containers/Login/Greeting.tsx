@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { LoginLandscapeImage } from '../../assets';
+import { TabsContainer, Tab } from '../../components';
+import { LoginRegistrationConst } from '../../consts';
 import { styled } from '../../styles';
-import { LoginLandscapeImage } from "../../assets";
 
 import { RegistrationForm } from './RegistrationForm';
 
@@ -18,6 +20,7 @@ const InputWrapper = styled.div`
   width: 500px;
   height: 600px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -28,10 +31,32 @@ const Picture = styled.img`
 `;
 
 export const Greeting = () => {
+
+  const [activeTab, setActiveTab] = React.useState(LoginRegistrationConst.LOGIN);
+
+  const activeForm = React.useMemo(() => {
+    switch (activeTab) {
+      case LoginRegistrationConst.LOGIN:
+        return <LoginForm />
+      case LoginRegistrationConst.REGISTRATION:
+        return <></>
+    }
+  }, [activeTab]);
+
   return (
     <Wrapper>
       <InputWrapper>
-        <RegistrationForm />
+        <TabsContainer>
+          <Tab
+            onClick={ () => setActiveTab(LoginRegistrationConst.LOGIN) }
+            isActive={ activeTab === LoginRegistrationConst.LOGIN }
+            text='Sign in' />
+          <Tab
+            onClick={ () => setActiveTab( LoginRegistrationConst.REGISTRATION) }
+            isActive={ activeTab === LoginRegistrationConst.REGISTRATION }
+            text='Sign up' />
+        </TabsContainer>
+        { activeForm }
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>
     </Wrapper>
