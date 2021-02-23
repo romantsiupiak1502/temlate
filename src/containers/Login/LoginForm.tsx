@@ -13,7 +13,7 @@ export const SubmitButton = styled(Button)`
 `;
 
 export const FormStyled = styled(Form)`
-  width: 400px;
+  width: 430px;
   height: 600px;
   display: flex;
   flex-direction: column;

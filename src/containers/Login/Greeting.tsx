@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { LoginLandscapeImage } from '../../assets';
 import { TabsContainer, Tab } from '../../components';
@@ -6,6 +7,7 @@ import { LoginRegistrationConst } from '../../consts';
 import { styled } from '../../styles';
 
 import { RegistrationForm } from './RegistrationForm';
+import { LoginForm } from './LoginForm';
 
 const Wrapper = styled.div`
   width: 1000px;
@@ -25,6 +27,13 @@ const InputWrapper = styled.div`
   justify-content: center;
 `;
 
+const AboutUsLink = styled(Link)`
+  font-size: 120%;
+  margin-bottom: 20px;
+  color: ${ ({theme}) => theme.colors.primary};
+  text-decoration: none;
+`;
+
 const Picture = styled.img`
   width: 500px;
   height: 600px;
@@ -39,7 +48,7 @@ export const Greeting = () => {
       case LoginRegistrationConst.LOGIN:
         return <LoginForm />
       case LoginRegistrationConst.REGISTRATION:
-        return <></>
+        return <RegistrationForm />
     }
   }, [activeTab]);
 
@@ -57,6 +66,9 @@ export const Greeting = () => {
             text='Sign up' />
         </TabsContainer>
         { activeForm }
+        <AboutUsLink to='/aboutus'>
+          About us
+        </AboutUsLink>
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>
     </Wrapper>
