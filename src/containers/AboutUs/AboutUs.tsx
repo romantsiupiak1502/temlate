@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { styled } from '../../styles';
-import { H1, H3 } from '../../components';
+import { H1, H3, IconButton, LeftArrow } from '../../components';
 import { AboutUsTeamImage } from '../../assets';
 
 const Wrapper = styled.div`
@@ -24,9 +25,13 @@ const ContentWrapper = styled.div`
   justify-content: flex-end;
 `;
 
+const BackButton = styled(Link)`
+  color: ${ ({theme}) => theme.colors.primary };
+  text-decoration: none;
+`;
+
 const AboutUsWrapper = styled.div`
   width: 600px;
-  height: 250px;
   display: flex;
   flex-direction: column;
   background-color: ${ ({theme}) => theme.colors.primary };
@@ -38,6 +43,9 @@ const AboutUsWrapper = styled.div`
 export const AboutUs: React.FC = () => {
   return (
     <Wrapper>
+      <BackButton to='/'>
+        <IconButton text='Back' icon={<LeftArrow size='30px'/>} onClick={ () => {} } />
+      </BackButton>
       <TitleWrapper>It's time to tell you about us</TitleWrapper>
       <ContentWrapper>
         <AboutUsWrapper>
