@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { LoginLandscapeImage } from '../../assets';
-import { TabsContainer, Tab } from '../../components';
+import { TabsContainer, Tab, H4} from '../../components';
 import { LoginRegistrationConst } from '../../consts';
 import { styled } from '../../styles';
 
@@ -67,7 +67,7 @@ export const Greeting = () => {
         </TabsContainer>
         { activeForm }
         <AboutUsLink to='/aboutus'>
-          About us
+          <H4>About us</H4>
         </AboutUsLink>
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>

@@ -25,8 +25,9 @@ const ContentWrapper = styled.div`
   justify-content: flex-end;
 `;
 
-const ComeBackLink = styled(Link)`
+const BackButton = styled(Link)`
   color: ${ ({theme}) => theme.colors.primary };
+  text-decoration: none;
 `;
 
 const AboutUsWrapper = styled.div`
@@ -42,9 +43,9 @@ const AboutUsWrapper = styled.div`
 export const AboutUs: React.FC = () => {
   return (
     <Wrapper>
-      <ComeBackLink to='/'>
-        <LeftArrow size='30px' />
-      </ComeBackLink>
+      <BackButton to='/'>
+        <IconButton text='Back' icon={<LeftArrow size='30px'/>} onClick={ () => {} } />
+      </BackButton>
       <TitleWrapper>It's time to tell you about us</TitleWrapper>
       <ContentWrapper>
         <AboutUsWrapper>
