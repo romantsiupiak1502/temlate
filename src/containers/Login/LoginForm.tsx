@@ -25,7 +25,7 @@ export const FormStyled = styled(Form)`
 export const LoginForm = () => {
   return (
     <Formik
-      initialValues = {{
+      initialValues={{
         email: '',
         password: '',
       }}
