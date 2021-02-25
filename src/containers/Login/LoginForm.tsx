@@ -2,9 +2,10 @@ import React from 'react';
 import { Field, Form, Formik } from "formik";
 
 import { styled } from '../../styles';
-import { Button, InputField, PasswordInput } from "../../components";
+import { Button, InputField, PasswordInputField } from "../../components";
+import { formErrorUtil } from '../../utils';
 
-export const PasswordInputStyled = styled(PasswordInput)`
+export const PasswordInputStyled = styled(PasswordInputField)`
   margin-top: 24px;
 `;
 
@@ -24,19 +25,25 @@ export const FormStyled = styled(Form)`
 export const LoginForm = () => {
   return (
     <Formik
-      initialValues={ {
+      initialValues={{
         email: '',
         password: '',
-      } }
-      onSubmit={ () => {
-      } }
+      }}
+      onSubmit={ () => {} }
     >
-      <FormStyled>
-        <Field name="email" placeholder="Enter your email" component={ InputField }/>
-        <Field name="password" placeholder="Enter your password" component={ PasswordInputStyled }/>
-        <SubmitButton type="submit" text='Submit' onClick={ () => {
-        } }>Submit</SubmitButton>
-      </FormStyled>
+        <FormStyled>
+          <Field
+            name="email"
+            placeholder="Enter your email"
+            validate={formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.email])}
+            component={ InputField }/>
+          <Field
+            name="password"
+            placeholder="Enter your password"
+            validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.password])}
+            component={ PasswordInputStyled }/>
+          <SubmitButton type="submit" text='Submit' onClick={ () => {} } />
+        </FormStyled>
     </Formik>
   );
-}
+};
