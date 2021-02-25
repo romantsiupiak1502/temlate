@@ -29,25 +29,20 @@ export const LoginForm = () => {
         email: '',
         password: '',
       }}
-      onSubmit={ (values) => {} }
+      onSubmit={ () => {} }
     >
         <FormStyled>
           <Field
             name="email"
             placeholder="Enter your email"
-            validate={formErrorUtil.combineValidation(
-              [formErrorUtil.required,
-                formErrorUtil.email])}
+            validate={formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.email])}
             component={ InputField }/>
           <Field
             name="password"
             placeholder="Enter your password"
-            validate={ formErrorUtil.combineValidation(
-              [formErrorUtil.required, formErrorUtil.password])}
+            validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.password])}
             component={ PasswordInputStyled }/>
-          <SubmitButton type="submit" text='Submit' onClick={ () => {} }>
-            Submit
-          </SubmitButton>
+          <SubmitButton type="submit" text='Submit' onClick={ () => {} } />
         </FormStyled>
     </Formik>
   );

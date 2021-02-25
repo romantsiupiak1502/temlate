@@ -78,7 +78,7 @@ export const RegistrationForm = () => {
           <Field
             name="repeatPassword"
             placeholder="Repeat your password"
-            validate={ (value: string) => formErrorUtil.confirmPassword(values.password, value)}
+            validate={ (value: string) => formErrorUtil.passwordRequirements(values.password, value)}
             component={ PasswordInputStyled }/>
         </FieldsRow>
         <SubmitButton type='submit' text='Sign up' onClick={ () => {}} />
