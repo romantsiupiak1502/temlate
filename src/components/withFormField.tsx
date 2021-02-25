@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { styled, theme } from '../styles';
 
-import { H4 } from './Text';
+import { ButtonText, H4 } from './Text';
 
 export interface IFormFieldProps {
   label?: string;
@@ -114,7 +114,7 @@ export const withFormField = <OriginalProps extends {}>(Component: React.Compone
       { !isInvalid && hint && <H4 className="hint">{ hint }</H4> }
       { form.errors[field.name] && form.touched[field.name] && (
         <div className="error-wrapper">
-          <H4 className="error">{ t(form.errors[field.name]?.toString() || '') }</H4>
+          <ButtonText className="error">{ t(form.errors[field.name]?.toString() || '') }</ButtonText>
         </div>
       ) }
     </Wrapper>
