@@ -10,3 +10,4 @@ export * from './TextButton';
 export * from './Tab';
 export * from './TabsContainer';
 export * from './UserCard';
+export * from './Dropdown';
