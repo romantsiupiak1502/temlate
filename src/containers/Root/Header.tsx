@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon } from '../../components';
+import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon, IDropdownItem } from '../../components';
 import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
+
+const getDropdownItems = (onLogoutClick:() => void, onChangeLanguage:() => void): Array<IDropdownItem> => {
+  return [
+  { text: 'Logout', icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
+  { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
+]; }
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -33,11 +39,6 @@ interface IHeaderProps {
 export const Header: React.FC<IHeaderProps> = props => {
   const { onLogoutClick, onChangeLanguage, userNameInitials } = props;
 
-  const items = [
-    { text: 'Logout', icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
-    { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
-  ];
-
   return (
     <HeaderWrapper>
       <Title to='/'>
@@ -47,7 +48,7 @@ export const Header: React.FC<IHeaderProps> = props => {
         <UserAvatar text={ userNameInitials } size={ UserAvatarConst.SMALL_AVATAR } onClick={ (() => {
         }) }/>
         <Dropdown
-          items={ items }/>
+          items={ getDropdownItems(onLogoutClick, onChangeLanguage) }/>
       </LoggedUser>
     </HeaderWrapper>
   );

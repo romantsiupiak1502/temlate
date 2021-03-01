@@ -4,7 +4,7 @@ import { Menu, MenuItem } from '@material-ui/core';
 import { DropdownArrowIcon } from './icons';
 import { IconButton } from './IconButton';
 
-type IDropdownItem = {
+export type IDropdownItem = {
   text: string;
   icon: React.ReactElement;
   onClick: () => void;
@@ -32,7 +32,7 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
       <IconButton
         aria-controls='menu'
         aria-haspopup='true'
-        text=''
+        text='Menu'
         icon={ <DropdownArrowIcon/> }
         onClick={ handleClick }/>
       <Menu
