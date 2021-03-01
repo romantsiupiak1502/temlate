@@ -5,7 +5,7 @@ import { IAuthStore } from "./types";
 const slice = createSlice({
   name: 'auth',
   initialState: {
-    isLoggedIn: false,
+    isLoggedIn: true,
   } as IAuthStore,
   reducers: {
     loginSuccess: (state, action) => {

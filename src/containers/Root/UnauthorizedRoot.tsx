@@ -3,8 +3,8 @@ import { Route, Switch } from "react-router-dom";
 
 import { styled } from '../../styles';
 
-import { AboutUs } from "../AboutUs";
-import { Greeting } from "../Login";
+import { AboutUs } from '../AboutUs';
+import { Greeting } from '../Login';
 
 const Wrapper = styled.div`
   width: 100vw;
