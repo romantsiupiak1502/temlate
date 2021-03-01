@@ -13,7 +13,7 @@ type ITheme = {
 
 export const theme: ITheme = {
   colors: {
-    primary: "#123456",
+    primary: '#123456',
     red: '#FF4D4D',
     black: '#000000',
     white: '#FFFFFF',
