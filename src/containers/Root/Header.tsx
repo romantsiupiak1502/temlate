@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon} from '../../components';
+import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon } from '../../components';
 import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
 
@@ -33,18 +33,21 @@ interface IHeaderProps {
 export const Header: React.FC<IHeaderProps> = props => {
   const { onLogoutClick, onChangeLanguage, userNameInitials } = props;
 
+  const items = [
+    { text: 'Logout', icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
+    { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
+  ];
+
   return (
     <HeaderWrapper>
       <Title to='/'>
         <H1>Swipex</H1>
       </Title>
       <LoggedUser>
-        <UserAvatar text={userNameInitials} size={UserAvatarConst.SMALL_AVATAR} onClick={( () => {} )} />
+        <UserAvatar text={ userNameInitials } size={ UserAvatarConst.SMALL_AVATAR } onClick={ (() => {
+        }) }/>
         <Dropdown
-        items={[
-        { text: 'Logout', icon: <LogoutIcon size='25px'/>,  onClick: onLogoutClick},
-        { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage},
-      ]} />
+          items={ items }/>
       </LoggedUser>
     </HeaderWrapper>
   );

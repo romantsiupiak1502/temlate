@@ -16,14 +16,17 @@ interface IDropdownProps {
 
 export const Dropdown: React.FC<IDropdownProps> = props => {
   const { items } = props;
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <>
       <IconButton
@@ -35,7 +38,7 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
       <Menu
         id='menu'
         anchorEl={ anchorEl }
-        keepMounted
+        keepMounted={true}
         open={ Boolean(anchorEl) }
         onClose={ handleClose }
       >
