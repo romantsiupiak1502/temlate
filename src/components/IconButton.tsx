@@ -19,13 +19,13 @@ const IButtonWrapper = styled.div`
 interface IconButtonProps {
   text: string,
   icon: React.ReactElement,
-  onClick: () => void,
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void,
 }
 
 export const IconButton: React.FC<IconButtonProps> = props => {
   const { text, icon, onClick } = props;
     return (
-        <IButtonWrapper onClick={onClick}>
+        <IButtonWrapper onClick={(onClick)}>
           {icon}
           <H3>{text}</H3>
         </IButtonWrapper>
