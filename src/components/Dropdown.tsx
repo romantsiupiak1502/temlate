@@ -4,7 +4,7 @@ import { Menu, MenuItem } from '@material-ui/core';
 import { DropdownArrowIcon } from './icons';
 import { IconButton } from './IconButton';
 
-export type IDropdownItem = {
+export interface IDropdownItem {
   text: string;
   icon: React.ReactElement;
   onClick: () => void;
@@ -12,10 +12,11 @@ export type IDropdownItem = {
 
 interface IDropdownProps {
   items: IDropdownItem[];
+  userName: string;
 }
 
 export const Dropdown: React.FC<IDropdownProps> = props => {
-  const { items } = props;
+  const { items, userName } = props;
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -28,17 +29,26 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
   };
 
   return (
-    <>
+    <div>
       <IconButton
         aria-controls='menu'
         aria-haspopup='true'
-        text='Menu'
+        text={ userName }
         icon={ <DropdownArrowIcon/> }
         onClick={ handleClick }/>
       <Menu
+        getContentAnchorEl={null}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
         id='menu'
         anchorEl={ anchorEl }
-        keepMounted={true}
+        keepMounted={ true }
         open={ Boolean(anchorEl) }
         onClose={ handleClose }
       >
@@ -51,6 +61,6 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
           </MenuItem>
         ) }
       </Menu>
-    </>
+    </div>
   );
 };

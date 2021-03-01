@@ -5,7 +5,9 @@ import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon, IDropdownItem } fro
 import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
 
-const getDropdownItems = (onLogoutClick:() => void, onChangeLanguage:() => void): Array<IDropdownItem> => {
+type IGetDropdownItem = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
+
+const getDropdownItems: IGetDropdownItem = ( onLogoutClick, onChangeLanguage ) => {
   return [
   { text: 'Logout', icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
   { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
@@ -45,10 +47,9 @@ export const Header: React.FC<IHeaderProps> = props => {
         <H1>Swipex</H1>
       </Title>
       <LoggedUser>
-        <UserAvatar text={ userNameInitials } size={ UserAvatarConst.SMALL_AVATAR } onClick={ (() => {
-        }) }/>
+        <UserAvatar text={ userNameInitials } size={ UserAvatarConst.SMALL_AVATAR } onClick={ (() => {}) }/>
         <Dropdown
-          items={ getDropdownItems(onLogoutClick, onChangeLanguage) }/>
+          items={ getDropdownItems(onLogoutClick, onChangeLanguage) } userName='Roman Tsiupiak'/>
       </LoggedUser>
     </HeaderWrapper>
   );
