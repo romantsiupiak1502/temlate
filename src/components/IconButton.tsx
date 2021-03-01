@@ -8,7 +8,7 @@ const IButtonWrapper = styled.div`
   width: max-content;
   height: max-content;
   padding-top: 8px;
-  padding-left: 32px;
+  padding-left: 16px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ const IButtonWrapper = styled.div`
 interface IconButtonProps {
   text: string,
   icon: React.ReactElement,
-  onClick: () => void,
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void,
 }
 
 export const IconButton: React.FC<IconButtonProps> = props => {
