@@ -24,18 +24,26 @@ const LoggedUser = styled.div`
   align-items: center;
 `;
 
-export const Header: React.FC = () => {
+interface IHeaderProps {
+  onLogoutClick: () => void;
+  onChangeLanguage: () => void;
+  userNameInitials: string;
+}
+
+export const Header: React.FC<IHeaderProps> = props => {
+  const { onLogoutClick, onChangeLanguage, userNameInitials } = props;
+
   return (
     <HeaderWrapper>
       <Title to='/'>
         <H1>Swipex</H1>
       </Title>
       <LoggedUser>
-        <UserAvatar text='RT' size={UserAvatarConst.SMALL_AVATAR} onClick={( () => {} )} />
+        <UserAvatar text={userNameInitials} size={UserAvatarConst.SMALL_AVATAR} onClick={( () => {} )} />
         <Dropdown
         items={[
-        { text: 'Logout', icon: <LogoutIcon size='25px'/>,  onClick: () => {}},
-        { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: () => {}},
+        { text: 'Logout', icon: <LogoutIcon size='25px'/>,  onClick: onLogoutClick},
+        { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage},
       ]} />
       </LoggedUser>
     </HeaderWrapper>

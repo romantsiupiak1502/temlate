@@ -1,17 +1,17 @@
-import { DropdownArrowIcon } from './icons';
 import React from 'react';
 import { Menu, MenuItem } from '@material-ui/core';
 
+import { DropdownArrowIcon } from './icons';
 import { IconButton } from './IconButton';
 
 type IDropdownItem = {
   text: string;
   icon: React.ReactElement;
-  onClick: ()=>void;
+  onClick: () => void;
 }
 
 interface IDropdownProps {
-  items: Array<IDropdownItem>;
+  items: IDropdownItem[];
 }
 
 export const Dropdown: React.FC<IDropdownProps> = props => {
@@ -30,21 +30,23 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
         aria-controls='menu'
         aria-haspopup='true'
         text=''
-        icon={<DropdownArrowIcon />}
-        onClick={handleClick} />
+        icon={ <DropdownArrowIcon/> }
+        onClick={ handleClick }/>
       <Menu
         id='menu'
-        anchorEl={anchorEl}
+        anchorEl={ anchorEl }
         keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
+        open={ Boolean(anchorEl) }
+        onClose={ handleClose }
       >
-        {
-          items.map( (item) =>
-            <MenuItem onClick={handleClose}>
-              <IconButton text={item.text} icon={item.icon} onClick={item.onClick}/>
-            </MenuItem> )
-        }
+        { items.map((item) =>
+          <MenuItem onClick={ handleClose }>
+            <IconButton
+              text={ item.text }
+              icon={ item.icon }
+              onClick={ item.onClick }/>
+          </MenuItem>
+        ) }
       </Menu>
     </>
   );

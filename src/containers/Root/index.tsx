@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { IStore } from 'store/types';
 
+import { IStore } from '../../store/types';
 import { styled } from '../../styles';
 
 import { AuthorizedRoot } from "./AuthorizedRoot";

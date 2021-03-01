@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 export const AuthorizedRoot: React.FC = () => {
   return (
     <Wrapper>
-      <Header />
+      <Header onLogoutClick={ () => {}} onChangeLanguage={ () => {} } userNameInitials='RT'/>
     </Wrapper>
   );
 };

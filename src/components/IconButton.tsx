@@ -25,7 +25,7 @@ interface IconButtonProps {
 export const IconButton: React.FC<IconButtonProps> = props => {
   const { text, icon, onClick } = props;
     return (
-        <IButtonWrapper onClick={(onClick)}>
+        <IButtonWrapper onClick={onClick}>
           {icon}
           <H3>{text}</H3>
         </IButtonWrapper>
