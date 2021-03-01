@@ -9,3 +9,4 @@ export * from './UserAvatar';
 export * from './TextButton';
 export * from './Tab';
 export * from './TabsContainer';
+export * from './UserCard';
