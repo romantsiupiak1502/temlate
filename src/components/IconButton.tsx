@@ -8,7 +8,7 @@ const IButtonWrapper = styled.div`
   width: max-content;
   height: max-content;
   padding-top: 8px;
-  padding-left: 16px;
+  padding-left: 8px;
   border-radius: 10px;
   display: flex;
   align-items: center;

@@ -5,7 +5,7 @@ import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon, IDropdownItem } fro
 import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
 
-type IGetDropdownItem = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
+export type IGetDropdownItem = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
 
 const getDropdownItems: IGetDropdownItem = ( onLogoutClick, onChangeLanguage ) => {
   return [

@@ -12,7 +12,7 @@ export interface IDropdownItem {
 
 interface IDropdownProps {
   items: IDropdownItem[];
-  userName: string;
+  userName?: string | undefined;
 }
 
 export const Dropdown: React.FC<IDropdownProps> = props => {
@@ -33,7 +33,7 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
       <IconButton
         aria-controls='menu'
         aria-haspopup='true'
-        text={ userName }
+        text={ userName ? userName : '' }
         icon={ <DropdownArrowIcon/> }
         onClick={ handleClick }/>
       <Menu
