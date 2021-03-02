@@ -34,7 +34,13 @@ export const UserCard: React.FC<IUserCardProps> = props => {
   return (
     <UserCardWrapper>
       <UserAvatarBlock userName={ name }/>
-      <UserInfoBlock userName={ name } email={ email } city={ city } street={ street } phone={ phone }/>
+      <UserInfoBlock
+        userName={ name }
+        email={ email }
+        city={ city }
+        street={ street }
+        phone={ phone }
+      />
     </UserCardWrapper>
   );
 };

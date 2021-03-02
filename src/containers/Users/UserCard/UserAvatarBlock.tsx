@@ -23,7 +23,8 @@ export const UserAvatarBlock: React.FC<IUserAvatarBlockProps> = props => {
     <AvatarContainer>
       <UserAvatar
         text={ stringUtil.UserNameInitialsUtil(userName) }
-        size={ UserAvatarConst.BIG_AVATAR } onClick={ () => {} }
+        size={ UserAvatarConst.BIG_AVATAR }
+        onClick={ () => {} }
       />
     </AvatarContainer>
   );

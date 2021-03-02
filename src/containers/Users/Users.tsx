@@ -2,14 +2,16 @@ import React from 'react';
 
 import { UserCard } from './UserCard';
 
+type IUsersAddress = {
+  city: string,
+  street: string
+};
+
 type IUsersItem = {
   id: number,
   name: string,
   email: string,
-  address: {
-    city: string,
-    street: string,
-  },
+  address: IUsersAddress,
   phone: string,
 }
 
@@ -22,13 +24,15 @@ export const Users: React.FC<IUsersProps> = props => {
 
   return (
     <>
-      { users.map((item) => <UserCard
-        id={ item.id }
-        name={ item.name }
-        email={ item.email }
-        city={ item.address.city }
-        street={ item.address.street }
-        phone={ item.phone }/>
+      { users.map((item) =>
+        <UserCard
+          id={ item.id }
+          name={ item.name }
+          email={ item.email }
+          city={ item.address.city }
+          street={ item.address.street }
+          phone={ item.phone }
+        />
       ) }
     </>
   );

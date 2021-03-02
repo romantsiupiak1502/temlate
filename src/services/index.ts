@@ -1,5 +1,5 @@
 import { localStorageService } from './storageService';
-import { apiServiceCreator, mockApiServiceCreator } from "./apiService";
+import { apiServiceCreator, mockApiServiceCreator } from './apiService';
 
 export const apiService = apiServiceCreator("");
 
