@@ -8,6 +8,8 @@ import { UserInfoBlock } from './UserInfoBlock';
 const UserCardWrapper = styled.div`
   width: 480px;
   height: 200px;
+  margin-top: 32px;
+  margin-left: 32px;
   border: 1px solid ${ ({ theme }) => theme.colors.black };
   border-radius: 8px;
   padding: 16px;
@@ -16,7 +18,7 @@ const UserCardWrapper = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: ${ ({ theme }) => theme.colors.white };
+    border: 1px solid ${ ({ theme }) => theme.colors.white };
   }
 `;
 

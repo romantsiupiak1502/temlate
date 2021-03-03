@@ -24,6 +24,7 @@ const getDropdownItems: IGetDropdownItem = (onLogoutClick, onChangeLanguage) => 
 
 const SideBarWrapper = styled.div`
   width: 300px;
+  height: 100%;
   background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   color: ${ ({ theme }) => theme.colors.primary };
   opacity: 0.8;

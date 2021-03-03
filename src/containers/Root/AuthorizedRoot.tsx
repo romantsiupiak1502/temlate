@@ -18,13 +18,25 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
 `;
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 export const AuthorizedRoot: React.FC = () => {
   return (
     <Wrapper>
-      <Header onLogoutClick={ () => {} } onChangeLanguage={ () => {} } userName='Roman Tsiuapiak'/>
-      <Switch>
-        <Route path='/' component={ UsersContainer }/>
-      </Switch>
+      <Header onLogoutClick={ () => {
+      } } onChangeLanguage={ () => {
+      } } userName='Roman Tsiuapiak'/>
+      <ContentWrapper>
+        <ContentContainer>
+          <Switch>
+            <Route path='/' component={ UsersContainer }/>
+          </Switch>
+        </ContentContainer>
+        <Sidebar/>
+      </ContentWrapper>
     </Wrapper>
   );
 };
