@@ -11,7 +11,7 @@ export const UsersContainer: React.FC = () => {
   React.useEffect(() => {
     apiService.get('users')
       .then((response) => setUsers(response.data))
-  });
+  }, []);
 
   return (
     <Users users={ users }/>
