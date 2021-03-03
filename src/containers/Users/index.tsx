@@ -9,7 +9,7 @@ export const UsersContainer: React.FC = () => {
   const [users, setUsers] = React.useState([]);
 
   React.useEffect(() => {
-    apiService('https://jsonplaceholder.typicode.com/users')
+    apiService.get('users')
       .then((response) => setUsers(response.data))
   });
 

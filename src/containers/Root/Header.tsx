@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { H1, UserAvatar, Dropdown, LogoutIcon, LanguageIcon, IDropdownItem } from '../../components';
 import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
+import { stringUtil } from '../../utils';
 
 type IGetDropdownItem = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
 
@@ -35,11 +36,11 @@ const LoggedUser = styled.div`
 interface IHeaderProps {
   onLogoutClick: () => void;
   onChangeLanguage: () => void;
-  userNameInitials: string;
+  userName: string;
 }
 
 export const Header: React.FC<IHeaderProps> = props => {
-  const { onLogoutClick, onChangeLanguage, userNameInitials } = props;
+  const { onLogoutClick, onChangeLanguage, userName } = props;
 
   return (
     <HeaderWrapper>
@@ -47,7 +48,7 @@ export const Header: React.FC<IHeaderProps> = props => {
         <H1>Swipex</H1>
       </Title>
       <LoggedUser>
-        <UserAvatar text={ userNameInitials } size={ UserAvatarConst.SMALL_AVATAR } onClick={ (() => {}) }/>
+        <UserAvatar text={ stringUtil.UserNameInitialsUtil(userName) } size={ UserAvatarConst.SMALL_AVATAR } onClick={ (() => {}) }/>
         <Dropdown
           items={ getDropdownItems(onLogoutClick, onChangeLanguage) } userName='Roman Tsiupiak'/>
       </LoggedUser>

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 export const AuthorizedRoot: React.FC = () => {
   return (
     <Wrapper>
-      <Header onLogoutClick={ () => {} } onChangeLanguage={ () => {} } userNameInitials='RT'/>
+      <Header onLogoutClick={ () => {} } onChangeLanguage={ () => {} } userName='Roman Tsiuapiak'/>
       <Switch>
         <Route path='/' component={ UsersContainer }/>
       </Switch>
