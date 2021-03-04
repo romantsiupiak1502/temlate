@@ -6,4 +6,4 @@ export { IoLanguageSharp as LanguageIcon } from 'react-icons/io5';
 export { IoAdd as AddIcon } from 'react-icons/io5';
 export { IoMdSearch as SearchIcon } from 'react-icons/io';
 export { HiOutlineUser as UserIcon } from 'react-icons/hi';
-export { AiOutlinePhone as PhoneIcon } from 'react-icons/ai';
+export { MdEmail as EmailIcon } from 'react-icons/md';

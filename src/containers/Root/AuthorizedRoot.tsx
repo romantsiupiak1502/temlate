@@ -8,35 +8,33 @@ import { Sidebar } from './Sidebar';
 import { UsersContainer } from '../Users';
 
 const Wrapper = styled.div`
-  width: 1500px;
-  height: 100%;
-`;
-
-const ContentWrapper = styled.div`
-  height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const ContentContainer = styled.div`
+  height: calc(100vh - 80px);
+  width: 85%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
 `;
 
 export const AuthorizedRoot: React.FC = () => {
   return (
-    <Wrapper>
+    <>
       <Header onLogoutClick={ () => {
       } } onChangeLanguage={ () => {
       } } userName='Roman Tsiuapiak'/>
-      <ContentWrapper>
-        <ContentContainer>
-          <Switch>
-            <Route path='/' component={ UsersContainer }/>
-          </Switch>
-        </ContentContainer>
-        <Sidebar/>
-      </ContentWrapper>
-    </Wrapper>
+      <Wrapper>
+          <ContentContainer>
+            <Switch>
+              <Route path='/' component={ UsersContainer }/>
+            </Switch>
+          </ContentContainer>
+          <Sidebar/>
+      </Wrapper>
+    </>
   );
 };

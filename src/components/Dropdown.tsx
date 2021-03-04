@@ -1,8 +1,7 @@
 import React from 'react';
 import { Menu, MenuItem } from '@material-ui/core';
 
-import { DropdownArrowIcon } from './icons';
-import { IconButton } from './IconButton';
+import { IconTextButton } from './IconTextButton';
 
 export interface IDropdownItem {
   text: string;
@@ -12,11 +11,11 @@ export interface IDropdownItem {
 
 interface IDropdownProps {
   items: IDropdownItem[];
-  userName?: string | undefined;
+  Component?: React.ReactElement;
 }
 
 export const Dropdown: React.FC<IDropdownProps> = props => {
-  const { items, userName } = props;
+  const { items, Component } = props;
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -30,22 +29,23 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
 
   return (
     <div>
-      <IconButton
+      <div
         aria-controls='menu'
         aria-haspopup='true'
-        text={ userName ? userName : '' }
-        icon={ <DropdownArrowIcon/> }
-        onClick={ handleClick }/>
+        onClick={ handleClick }
+      >
+        { Component }
+      </div>
       <Menu
-        getContentAnchorEl={null}
-        anchorOrigin={{
+        getContentAnchorEl={ null }
+        anchorOrigin={ {
           vertical: 'bottom',
           horizontal: 'center',
-        }}
-        transformOrigin={{
+        } }
+        transformOrigin={ {
           vertical: 'top',
           horizontal: 'center',
-        }}
+        } }
         id='menu'
         anchorEl={ anchorEl }
         keepMounted={ true }
@@ -54,7 +54,7 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
       >
         { items.map((item) =>
           <MenuItem onClick={ handleClose }>
-            <IconButton
+            <IconTextButton
               text={ item.text }
               icon={ item.icon }
               onClick={ item.onClick }/>

@@ -6,7 +6,7 @@ import { stringUtil } from '../../../utils';
 import { UserAvatar } from '../../../components';
 
 const AvatarContainer = styled.div`
-  padding: 16px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;

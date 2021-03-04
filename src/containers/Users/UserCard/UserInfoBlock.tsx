@@ -7,6 +7,7 @@ const UserInform = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const UserNameContainer = styled.div`

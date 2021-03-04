@@ -3,39 +3,40 @@ import { Field, Form, Formik } from 'formik';
 
 import { styled } from '../../styles';
 import {
+  IconTextButton,
   IconButton,
   AddIcon,
   InputField,
-  SearchIcon,
+  DropdownArrowIcon,
   Dropdown,
   UserIcon,
-  PhoneIcon,
+  EmailIcon,
   TextButton
 } from '../../components';
 
 import { IGetDropdownItem } from './Header';
 
-const getDropdownItems: IGetDropdownItem = (onLogoutClick, onChangeLanguage) => {
+const getDropdownItems: IGetDropdownItem = (onSortByName, onSortByEmail) => {
   return [
-    { text: 'Sort by name', icon: <UserIcon size='25px'/>, onClick: onLogoutClick },
-    { text: 'Sort by phone', icon: <PhoneIcon size='25px'/>, onClick: onChangeLanguage }
+    { text: 'Sort by name', icon: <UserIcon size='25px'/>, onClick: onSortByName },
+    { text: 'Sort by email', icon: <EmailIcon size='25px'/>, onClick: onSortByName },
   ];
 }
 
 const SideBarWrapper = styled.div`
-  width: 300px;
-  height: 100%;
-  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   color: ${ ({ theme }) => theme.colors.primary };
+  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   opacity: 0.8;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 32px;
+  padding-right: 32px;
 `;
 
 const FormStyled = styled(Form)`
   padding-top: 16px;
+  padding-left: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,13 +49,14 @@ const InputFieldStyled = styled(InputField)`
 const SortButtonContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: 32px;
 `;
 
 export const Sidebar: React.FC = () => {
   return (
     <SideBarWrapper>
-      <IconButton text='Add button' icon={ <AddIcon size='25px'/> } onClick={ () => {
+      <IconTextButton text='Add user' icon={ <AddIcon size='25px'/> } onClick={ () => {
       } }/>
       <Formik
         initialValues={ {
@@ -64,28 +66,24 @@ export const Sidebar: React.FC = () => {
         onSubmit={ () => {
         } }
       >
-        { ({ handleSubmit }) => (
-          <FormStyled>
-            <Field
-              name='searchByName'
-              placeholder='Search by name'
-              component={ InputFieldStyled }/>
-            <Field
-              name='searchByCity'
-              placeholder='Search by city'
-              component={ InputFieldStyled }/>
-            <IconButton
-              text='Search'
-              icon={ <SearchIcon size='25px'/> }
-              onClick={ (e) => handleSubmit }/>
-          </FormStyled>
-        ) }
+        <FormStyled>
+          <Field
+            name='searchByName'
+            placeholder='Search by name'
+            component={ InputFieldStyled }/>
+          <Field
+            name='searchByCity'
+            placeholder='Search by city'
+            component={ InputFieldStyled }/>
+        </FormStyled>
       </Formik>
       <SortButtonContainer>
-        <TextButton text='Sort' onClick={ () => {} }/>
-        <Dropdown items={ getDropdownItems(() => {
-        }, () => {
-        }) }/>
+        <TextButton text='Sort' onClick={ () => {
+        } }/>
+        <Dropdown
+          items={ getDropdownItems(() => { }, () => {}) }
+          Component={<IconButton icon={ <DropdownArrowIcon size='15px'/> } onClick={ () => {} }/>}
+        />
       </SortButtonContainer>
     </SideBarWrapper>
   );

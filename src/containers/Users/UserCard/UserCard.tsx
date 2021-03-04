@@ -6,7 +6,7 @@ import { UserAvatarBlock } from './UserAvatarBlock';
 import { UserInfoBlock } from './UserInfoBlock';
 
 const UserCardWrapper = styled.div`
-  width: 480px;
+  width: 520px;
   height: 200px;
   margin-top: 32px;
   margin-left: 32px;
@@ -14,11 +14,11 @@ const UserCardWrapper = styled.div`
   border-radius: 8px;
   padding: 16px;
   display: flex;
-  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
+  background-color: ${ ({ theme }) => theme.colors.backgroundGray};
   cursor: pointer;
 
   &:hover {
-    border: 1px solid ${ ({ theme }) => theme.colors.white };
+    border: 1px solid ${ ({ theme }) => theme.colors.gray };
   }
 `;
 
