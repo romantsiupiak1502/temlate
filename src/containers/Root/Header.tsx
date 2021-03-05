@@ -15,9 +15,9 @@ import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
 import { stringUtil } from '../../utils';
 
-export type IGetDropdownItem = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
+export type IGetDropdownItems = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
 
-const getDropdownItems: IGetDropdownItem = (onLogoutClick, onChangeLanguage) => {
+const getDropdownItems: IGetDropdownItems = (onLogoutClick, onChangeLanguage) => {
   return [
     { text: 'Logout', icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
     { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
@@ -38,7 +38,7 @@ const Title = styled(Link)`
   text-decoration: none;
 `;
 
-const LoggedUser = styled.div`
+const UserInfoBlock = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -57,21 +57,19 @@ export const Header: React.FC<IHeaderProps> = props => {
       <Title to='/'>
         <H1>Swipex</H1>
       </Title>
-      <LoggedUser>
+      <UserInfoBlock>
         <UserAvatar
           text={ stringUtil.UserNameInitialsUtil(userName) }
           size={ UserAvatarConst.SMALL_AVATAR }
-          onClick={ (() => {}) }
         />
         <Dropdown
           items={ getDropdownItems(onLogoutClick, onChangeLanguage) }
           Component={ <IconTextButton
             text={ userName }
             icon={ <DropdownArrowIcon size='20px'/> }
-            onClick={ () => {} }
           /> }
         />
-      </LoggedUser>
+      </UserInfoBlock>
     </Wrapper>
   );
 };

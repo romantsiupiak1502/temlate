@@ -11,9 +11,9 @@ import {
   Input,
 } from '../../components';
 
-import { IGetDropdownItem } from './Header';
+import { IGetDropdownItems } from './Header';
 
-const getDropdownItems: IGetDropdownItem = (onSortByName, onSortByEmail) => {
+const getDropdownItems: IGetDropdownItems = (onSortByName, onSortByEmail) => {
   return [
     { text: 'Sort by name', icon: <UserIcon size='25px'/>, onClick: onSortByName },
     { text: 'Sort by email', icon: <EmailIcon size='25px'/>, onClick: onSortByEmail },
@@ -21,7 +21,6 @@ const getDropdownItems: IGetDropdownItem = (onSortByName, onSortByEmail) => {
 }
 
 const Wrapper = styled.div`
-  color: ${ ({ theme }) => theme.colors.primary };
   background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   border-left: 2px solid ${ ({ theme }) => theme.colors.gray };
   display: flex;
@@ -35,29 +34,32 @@ const InputStyled = styled(Input)`
 `;
 
 const SortButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 32px;
 `;
 
-export const Sidebar: React.FC = () => {
+interface ISidebarProps {
+  onNameChange: () => void;
+  onEmailChange: () => void;
+}
+
+export const Sidebar: React.FC<ISidebarProps> = props => {
+  const { onNameChange, onEmailChange } = props;
+
   return (
     <Wrapper>
       <IconTextButton
         text='Add user'
         icon={ <PlusIcon size='25px'/> }
-        onClick={ () => {} }
+        onClick={ () => {alert('hi')} }
       />
-      <InputStyled placeholder='Search by name' onChange={ () => {} }/>
-      <InputStyled placeholder='Search by email' onChange={ () => {} }/>
+      <InputStyled placeholder='Search by name' onChange={ onNameChange }/>
+      <InputStyled placeholder='Search by email' onChange={ onEmailChange }/>
       <SortButtonContainer>
         <Dropdown
           items={ getDropdownItems(() => {}, () => {}) }
           Component={ <IconTextButton
             text='Sort'
             icon={ <DropdownArrowIcon size='15px'/> }
-            onClick={ () => {} }
           /> }
         />
       </SortButtonContainer>
