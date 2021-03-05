@@ -1,6 +1,15 @@
 import React from 'react';
 
+import { styled } from "../../styles";
+
 import { UserCard } from './UserCard';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  height: calc(100vh - 75px);
+  overflow-y: scroll;
+`;
 
 type IUsersAddress = {
   city: string,
@@ -23,7 +32,7 @@ export const Users: React.FC<IUsersProps> = props => {
   const { users } = props;
 
   return (
-    <>
+    <Wrapper>
       { users.map((item) =>
         <UserCard
           id={ item.id }
@@ -34,6 +43,6 @@ export const Users: React.FC<IUsersProps> = props => {
           phone={ item.phone }
         />
       ) }
-    </>
+    </Wrapper>
   );
 };

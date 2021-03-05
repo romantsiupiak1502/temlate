@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { styled } from '../../styles';
-import { H1, H3, IconButton, LeftArrowIcon } from '../../components';
+import { H1, H3, IconTextButton, LeftArrowIcon } from '../../components';
 import { AboutUsTeamImage } from '../../assets';
 
 const Wrapper = styled.div`
@@ -44,7 +44,7 @@ export const AboutUs: React.FC = () => {
   return (
     <Wrapper>
       <BackButton to='/'>
-        <IconButton text='Back' icon={<LeftArrowIcon size='30px'/>} onClick={ () => {} } />
+        <IconTextButton text='Back' icon={<LeftArrowIcon size='30px'/>} onClick={ () => {} } />
       </BackButton>
       <TitleWrapper>It's time to tell you about us</TitleWrapper>
       <ContentWrapper>

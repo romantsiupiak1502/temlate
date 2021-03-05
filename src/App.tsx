@@ -4,12 +4,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Root } from './containers';
 import store from './store';
-import { theme, ThemeProvider } from './styles';
+import { theme, ThemeProvider, GlobalStyle } from './styles';
 
 const App = () => (
   <Provider store={ store }>
     <ThemeProvider theme={ theme }>
       <Router>
+        <GlobalStyle/>
         <Root/>
       </Router>
     </ThemeProvider>
