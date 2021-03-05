@@ -4,7 +4,7 @@ import { styled } from '../../styles';
 import {
   IconTextButton,
   PlusIcon,
-  DropdownArrowIcon,
+  DownArrowIcon,
   Dropdown,
   UserIcon,
   EmailIcon,
@@ -33,36 +33,37 @@ const InputStyled = styled(Input)`
   margin-top: 24px;
 `;
 
-const SortButtonContainer = styled.div`
+const SortButton = styled.div`
   margin-top: 32px;
 `;
 
 interface ISidebarProps {
-  onNameChange: () => void;
-  onEmailChange: () => void;
+  onSearchByNameChange: () => void;
+  onSearchByEmailChange: () => void;
+  onAddUserClick: () => void;
 }
 
 export const Sidebar: React.FC<ISidebarProps> = props => {
-  const { onNameChange, onEmailChange } = props;
+  const { onSearchByNameChange, onSearchByEmailChange, onAddUserClick } = props;
 
   return (
     <Wrapper>
       <IconTextButton
         text='Add user'
         icon={ <PlusIcon size='25px'/> }
-        onClick={ () => {alert('hi')} }
+        onClick={ onAddUserClick }
       />
-      <InputStyled placeholder='Search by name' onChange={ onNameChange }/>
-      <InputStyled placeholder='Search by email' onChange={ onEmailChange }/>
-      <SortButtonContainer>
+      <InputStyled placeholder='Search by name' onChange={ onSearchByNameChange }/>
+      <InputStyled placeholder='Search by email' onChange={ onSearchByEmailChange }/>
+      <SortButton>
         <Dropdown
           items={ getDropdownItems(() => {}, () => {}) }
           Component={ <IconTextButton
             text='Sort'
-            icon={ <DropdownArrowIcon size='15px'/> }
+            icon={ <DownArrowIcon size='15px'/> }
           /> }
         />
-      </SortButtonContainer>
+      </SortButton>
     </Wrapper>
   );
 };

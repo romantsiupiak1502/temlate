@@ -30,7 +30,11 @@ export const AuthorizedRoot: React.FC = () => {
           <Switch>
             <Route path='/' component={ UsersContainer }/>
           </Switch>
-          <Sidebar onNameChange={ () => {} } onEmailChange={ () => {} }/>
+          <Sidebar
+            onSearchByNameChange={ () => {} }
+            onSearchByEmailChange={ () => {} }
+            onAddUserClick={ () => {} }
+          />
         </ContentContainer>
       </Wrapper>
     </Wrapper>

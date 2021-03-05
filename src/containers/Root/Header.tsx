@@ -9,7 +9,7 @@ import {
   LanguageIcon,
   IDropdownItem,
   IconTextButton,
-  DropdownArrowIcon
+  DownArrowIcon
 } from '../../components';
 import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
@@ -66,7 +66,7 @@ export const Header: React.FC<IHeaderProps> = props => {
           items={ getDropdownItems(onLogoutClick, onChangeLanguage) }
           Component={ <IconTextButton
             text={ userName }
-            icon={ <DropdownArrowIcon size='20px'/> }
+            icon={ <DownArrowIcon size='20px'/> }
           /> }
         />
       </UserInfoBlock>
