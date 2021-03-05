@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -10,10 +10,8 @@ const App = () => (
   <Provider store={ store }>
     <ThemeProvider theme={ theme }>
       <Router>
-        <Fragment>
-          <GlobalStyle/>
-            <Root/>
-        </Fragment>
+        <GlobalStyle/>
+        <Root/>
       </Router>
     </ThemeProvider>
   </Provider>

@@ -24,25 +24,21 @@ const getDropdownItems: IGetDropdownItem = (onLogoutClick, onChangeLanguage) => 
   ];
 }
 
-const HeaderWrapper = styled.div`
-  width: 100%;
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   border-bottom: 2px solid ${ ({ theme }) => theme.colors.gray };
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px;
 `;
 
 const Title = styled(Link)`
-  padding-left: 16px;
   color: ${ ({ theme }) => theme.colors.primary };
   text-decoration: none;
 `;
 
 const LoggedUser = styled.div`
-  padding-right: 8px;
   display: flex;
   align-items: center;
 `;
@@ -57,19 +53,25 @@ export const Header: React.FC<IHeaderProps> = props => {
   const { onLogoutClick, onChangeLanguage, userName } = props;
 
   return (
-    <HeaderWrapper>
+    <Wrapper>
       <Title to='/'>
         <H1>Swipex</H1>
       </Title>
       <LoggedUser>
-        <UserAvatar text={ stringUtil.UserNameInitialsUtil(userName) } size={ UserAvatarConst.SMALL_AVATAR }
-                    onClick={ (() => {
-                    }) }/>
+        <UserAvatar
+          text={ stringUtil.UserNameInitialsUtil(userName) }
+          size={ UserAvatarConst.SMALL_AVATAR }
+          onClick={ (() => {}) }
+        />
         <Dropdown
           items={ getDropdownItems(onLogoutClick, onChangeLanguage) }
-          Component={ <IconTextButton text={ userName } icon={ <DropdownArrowIcon size='20px'/> } onClick={ () => {} }/> }
+          Component={ <IconTextButton
+            text={ userName }
+            icon={ <DropdownArrowIcon size='20px'/> }
+            onClick={ () => {} }
+          /> }
         />
       </LoggedUser>
-    </HeaderWrapper>
+    </Wrapper>
   );
 };

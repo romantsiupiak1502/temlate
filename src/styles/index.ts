@@ -14,8 +14,4 @@ export const GlobalStyle = createGlobalStyle`
   *:focus {
     outline:0;
   }
-  body {
-    width: 100%;
-    overflow-y: hidden;
-  }
 `;

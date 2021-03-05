@@ -11,7 +11,7 @@ export interface IDropdownItem {
 
 interface IDropdownProps {
   items: IDropdownItem[];
-  Component?: React.ReactElement;
+  Component: React.ReactElement;
 }
 
 export const Dropdown: React.FC<IDropdownProps> = props => {

@@ -4,7 +4,6 @@ export * from './Input';
 export * from './Text';
 export * from './icons';
 export * from './IconTextButton';
-export * from './IconButton';
 export * from './DatePicker';
 export * from './UserAvatar';
 export * from './TextButton';

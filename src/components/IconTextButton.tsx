@@ -4,30 +4,32 @@ import { styled } from '../styles';
 
 import { H3 } from "./Text";
 
-const IButtonWrapper = styled.div`
-  width: max-content;
-  height: max-content;
-  padding-top: 8px;
-  padding-left: 8px;
-  border-radius: 10px;
+interface IconButtonStyledProps {
+  isDisabled?: boolean;
+};
+
+const IconButtonWrapper = styled.div<IconButtonStyledProps>`
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: ${ ({ theme, isDisabled }) => isDisabled ? theme.colors.gray : theme.colors.primary };
   cursor: pointer;
 `;
 
 interface IconButtonProps {
-  text: string,
-  icon: React.ReactElement,
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void,
+  text: string;
+  icon: React.ReactElement;
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  isDisable?: boolean;
 }
 
 export const IconTextButton: React.FC<IconButtonProps> = props => {
-  const { text, icon, onClick } = props;
+  const { text, icon, onClick, isDisable } = props;
     return (
-        <IButtonWrapper onClick={onClick}>
+        <IconButtonWrapper onClick={onClick} isDisabled={isDisable}>
           {icon}
           <H3>{text}</H3>
-        </IButtonWrapper>
+        </IconButtonWrapper>
     );
 };

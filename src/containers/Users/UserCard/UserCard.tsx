@@ -18,7 +18,7 @@ const UserCardWrapper = styled.div`
   cursor: pointer;
 
   &:hover {
-    border: 1px solid ${ ({ theme }) => theme.colors.gray };
+    border-color: ${ ({ theme }) => theme.colors.gray };
   }
 `;
 

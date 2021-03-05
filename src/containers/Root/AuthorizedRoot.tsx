@@ -10,31 +10,29 @@ import { UsersContainer } from '../Users';
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const ContentContainer = styled.div`
-  height: calc(100vh - 80px);
-  width: 85%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow-y: scroll;
 `;
 
 export const AuthorizedRoot: React.FC = () => {
   return (
-    <>
-      <Header onLogoutClick={ () => {
-      } } onChangeLanguage={ () => {
-      } } userName='Roman Tsiuapiak'/>
+    <Wrapper>
+      <Header
+        onLogoutClick={ () => {} }
+        onChangeLanguage={ () => {} }
+        userName='Roman Tsiuapiak'
+      />
       <Wrapper>
-          <ContentContainer>
-            <Switch>
-              <Route path='/' component={ UsersContainer }/>
-            </Switch>
-          </ContentContainer>
+        <ContentContainer>
+          <Switch>
+            <Route path='/' component={ UsersContainer }/>
+          </Switch>
           <Sidebar/>
+        </ContentContainer>
       </Wrapper>
-    </>
+    </Wrapper>
   );
 };
