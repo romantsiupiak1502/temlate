@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Modal as ModalComponent } from 'components';
+import { Modal as ModalComponent } from '../components';
 
 interface IModalProps {
   onCrossClick?: () => void;
@@ -9,7 +9,7 @@ interface IModalProps {
 }
 
 export const useModal = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = React.useState(false);
 
   const openModal = () => setIsVisible(true);
 

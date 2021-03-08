@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { styled } from '../../../styles';
 
 import { UserAvatarBlock } from './UserAvatarBlock';
 import { UserInfoBlock } from './UserInfoBlock';
 
-const UserCardWrapper = styled.div`
+const UserCardWrapper = styled(Link)`
   width: 520px;
   height: 200px;
   margin-top: 32px;
@@ -15,7 +16,7 @@ const UserCardWrapper = styled.div`
   padding: 16px;
   display: flex;
   background-color: ${ ({ theme }) => theme.colors.backgroundGray};
-  cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     border-color: ${ ({ theme }) => theme.colors.gray };
@@ -29,12 +30,13 @@ interface IUserCardProps {
   city: string;
   street: string;
   phone: string;
+  onUserCardClick: () => void;
 };
 
 export const UserCard: React.FC<IUserCardProps> = props => {
-  const { id, name, email, city, street, phone } = props;
+  const { id, name, email, city, street, phone, onUserCardClick } = props;
   return (
-    <UserCardWrapper>
+    <UserCardWrapper to={`/${id}`} onClick={ onUserCardClick }>
       <UserAvatarBlock userName={ name }/>
       <UserInfoBlock
         userName={ name }

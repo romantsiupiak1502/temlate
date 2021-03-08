@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { styled } from '../../styles';
 
 import { Header } from './Header';
+
 import { Sidebar } from './Sidebar';
 import { UsersContainer } from '../Users';
 
@@ -17,23 +18,31 @@ const ContentContainer = styled.div`
   display: flex;
 `;
 
-export const AuthorizedRoot: React.FC = () => {
+interface IAuthorizedRootProps {
+  onLogoutClick: () => void;
+  onLanguageClick: () => void;
+  onAddUserClick: () => void;
+}
+
+export const AuthorizedRoot: React.FC<IAuthorizedRootProps> = props => {
+  const { onLogoutClick, onLanguageClick, onAddUserClick } = props;
+
   return (
     <Wrapper>
       <Header
-        onLogoutClick={ () => {} }
-        onChangeLanguage={ () => {} }
+        onLogoutClick={ onLogoutClick }
+        onChangeLanguage={ onLanguageClick }
         userName='Roman Tsiuapiak'
       />
       <Wrapper>
         <ContentContainer>
           <Switch>
-            <Route path='/' component={ UsersContainer }/>
+            <Route path='/:id?' component={ UsersContainer }/>
           </Switch>
           <Sidebar
             onSearchByNameChange={ () => {} }
             onSearchByEmailChange={ () => {} }
-            onAddUserClick={ () => {} }
+            onAddUserClick={ onAddUserClick }
           />
         </ContentContainer>
       </Wrapper>

@@ -10,10 +10,12 @@ interface ITextButtonStyledProps {
 const TextButtonWrapper = styled.div<ITextButtonStyledProps>`
   width: max-content;
   height: max-content;
-  padding-top: 8px;
-  padding-left: 32px;
+  padding: 16px;
   cursor: pointer;
   color: ${ ({ theme, isDisabled }) => isDisabled ? theme.colors.gray : theme.colors.primary };
+  &:hover {
+  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
+}
 `;
 
 interface ITextButtonProps {

@@ -53,7 +53,7 @@ export const Modal: React.FC<IModalProps> = (props) => {
   const el: HTMLElement | React.DetailedReactHTMLElement<{ className: string }, HTMLElement> = document.getElementById('modals')
     || React.createElement('div', { className: "modals" }, null);
   return ReactDOM.createPortal(
-    (<>
+    (<div>
       {isVisible ? (
         <Wrapper>
           <ModalContent>
@@ -67,6 +67,6 @@ export const Modal: React.FC<IModalProps> = (props) => {
           </ModalContent>
         </Wrapper>
       ) : null}
-    </>), el as HTMLElement
+    </div>), el as HTMLElement
   );
 };

@@ -13,23 +13,27 @@ const Wrapper = styled.div`
 
 type IUsersAddress = {
   city: string,
-  street: string
+  street: string,
+  suite?: string,
+  zipcode?: string,
 };
 
-type IUsersItem = {
+export type IUsersItem = {
   id: number,
   name: string,
   email: string,
   address: IUsersAddress,
   phone: string,
+  website?: string,
 }
 
 interface IUsersProps {
   users: IUsersItem[];
+  onUserCardClick: () => void;
 }
 
 export const Users: React.FC<IUsersProps> = props => {
-  const { users } = props;
+  const { users, onUserCardClick } = props;
 
   return (
     <Wrapper>
@@ -41,6 +45,7 @@ export const Users: React.FC<IUsersProps> = props => {
           city={ item.address.city }
           street={ item.address.street }
           phone={ item.phone }
+          onUserCardClick={onUserCardClick}
         />
       ) }
     </Wrapper>
