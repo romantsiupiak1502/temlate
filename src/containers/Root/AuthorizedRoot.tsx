@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
-import { LanguagesConst } from '../../consts';
+import { languageService } from '../../services';
 
 import { UsersContainer } from '../Users';
 
@@ -24,8 +24,8 @@ const ContentContainer = styled.div`
 
 export const AuthorizedRoot: React.FC = () => {
 
-  const {openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal} = useModal();
-  const {openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal} = useModal();
+  const { openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal } = useModal();
+  const { openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal } = useModal();
 
   return (
     <Wrapper>
@@ -34,21 +34,25 @@ export const AuthorizedRoot: React.FC = () => {
         onChangeLanguage={ openLanguageModal }
         userName='Roman Tsiuapiak'
       />
-        <ContentContainer>
-          <Switch>
-            <Route path='/:id?' component={ UsersContainer }/>
-          </Switch>
-          <Sidebar
-            onSearchByNameChange={ () => {} }
-            onSearchByEmailChange={ () => {} }
-            onAddUserClick={ () => {} }
-          />
-        </ContentContainer>
+      <ContentContainer>
+        <Switch>
+          <Route path='/' component={ UsersContainer }/>
+        </Switch>
+        <Sidebar
+          onSearchByNameChange={ () => {} }
+          onSearchByEmailChange={ () => {} }
+          onAddUserClick={ () => {} }
+        />
+      </ContentContainer>
       <LogoutModal title='Do you want to logout?'>
-        <LogoutModalContent onCancelClick={closeLogoutModal} onConfirmClick={closeLogoutModal}/>
+        <LogoutModalContent onCancelClick={ closeLogoutModal } onConfirmClick={ closeLogoutModal }/>
       </LogoutModal>
       <LanguageModal title='Choose language'>
-        <LanguageModalContent onLanguageChangeClick={ (LanguagesConst) => closeLanguageModal() }/>
+        <LanguageModalContent onLanguageChangeClick={ language => {
+          languageService.changeLanguage(language);
+          closeLanguageModal();
+        } }
+        />
       </LanguageModal>
     </Wrapper>
   );

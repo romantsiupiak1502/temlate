@@ -7,17 +7,21 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
+const TextStyled = styled(H4)`
+  color: ${ ({ theme }) => theme.colors.primary }
+`;
+
 interface IUserInfoModalContentProps {
-  field: string;
-  value: string;
+  title: string;
+  value: string | undefined;
 }
 
 export const UserInfoRow: React.FC<IUserInfoModalContentProps> = props => {
-  const { field, value } = props;
+  const { title, value } = props;
   return (
     <Wrapper>
-      <H4 isBold={true}>{field}: </H4>
-      <H4>{value}</H4>
+      <TextStyled isBold={true}>{title}: </TextStyled>
+      <TextStyled>{value}</TextStyled>
     </Wrapper>
   );
 };

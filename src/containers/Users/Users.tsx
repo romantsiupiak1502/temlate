@@ -31,32 +31,34 @@ export type IUsersItem = {
 
 interface IUsersProps {
   users: IUsersItem[];
-  selectedUser: IUsersItem | object;
+  selectedUser: IUsersItem | null;
   setSelectedUserId: (id: number) => void;
 }
 
 export const Users: React.FC<IUsersProps> = props => {
   const { users, selectedUser, setSelectedUserId } = props;
 
-  const { closeModal: closeUserModal, openModal: openUserModal, Modal: UserModal } = useModal();
+  const { closeModal: closeUserInfoModal, openModal: openUserInfoModal, Modal: UserInfoModal } = useModal();
 
   return (
     <Wrapper>
       { users.map((item) =>
         <UserCard
-          id={ item.id }
+          key={ item.id }
           name={ item.name }
           email={ item.email }
           city={ item.address.city }
           street={ item.address.street }
           phone={ item.phone }
-          setSelectedUserId={setSelectedUserId}
-          onUserCardClick={ openUserModal }
+          onUserCardClick={ () => {
+            setSelectedUserId(item.id);
+            openUserInfoModal();
+          } }
         />
       ) }
-      <UserModal>
-        <UserModalContent selectedUser={ selectedUser } onCloseClick={ closeUserModal }/>
-      </UserModal>
+      <UserInfoModal>
+        <UserModalContent selectedUser={ selectedUser } onCloseClick={ closeUserInfoModal }/>
+      </UserInfoModal>
     </Wrapper>
   );
 };

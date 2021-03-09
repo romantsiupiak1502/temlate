@@ -4,22 +4,23 @@ import { apiService } from '../../services';
 
 import { Users, IUsersItem } from './Users';
 
-
-type IFindSelectedUser = (users: IUsersItem[], id: number) => IUsersItem | object;
-const findSelectedUser: IFindSelectedUser = (users, id) => users.find((item: IUsersItem) => item.id === id)
-  || { message: 'user not found' };
-
 export const UsersContainer: React.FC = () => {
 
   const [users, setUsers] = React.useState([]);
-  const [selectedUserId, setSelectedUserId] = React.useState(1)
+  const [selectedUserId, setSelectedUserId] = React.useState(0)
 
   React.useEffect(() => {
     apiService.get('users')
       .then((response) => setUsers(response.data))
   }, []);
 
+  const selectedUser = React.useMemo(() => users.find((item: IUsersItem) => item.id === selectedUserId), [selectedUserId]);
+
   return (
-    <Users users={ users } selectedUser={findSelectedUser(users, selectedUserId)} setSelectedUserId={setSelectedUserId}/>
+    <Users
+      users={ users }
+      selectedUser={selectedUser || null}
+      setSelectedUserId={ setSelectedUserId }
+    />
   );
 };

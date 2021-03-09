@@ -25,7 +25,7 @@ export const LogoutModalContent: React.FC<ILogoutModalContentProps> = props => {
 
   return (
     <Wrapper>
-        <TextButton text='cancel' onClick={ onCancelClick }/>
+        <TextButton text='Cancel' onClick={ onCancelClick }/>
         <ButtonStyled text='Confirm' onClick={ onConfirmClick }/>
     </Wrapper>
   );

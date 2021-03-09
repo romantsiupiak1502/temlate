@@ -1,17 +1,17 @@
 import React from 'react';
 
 import { styled } from '../../styles';
-import { IconTextButton, UserAvatar, CloseIcon } from '../../components';
+import { IconTextButton, UserAvatar, RoodIcon } from '../../components';
 import { UserAvatarConst } from '../../consts';
 import { stringUtil } from '../../utils';
 
 import { UserInfoRow } from './UserInfoRow';
+import { IUsersItem } from './Users';
 
 const Wrapper = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
-  color: ${ ({ theme }) => theme.colors.gray };
 `;
 
 const CloseButton = styled.div`
@@ -28,32 +28,36 @@ const UserAvatarContainer = styled.div`
 `;
 
 interface IUserModalContentProps {
-  selectedUser: any,
+  selectedUser: IUsersItem | null,
   onCloseClick: () => void,
 }
 
 export const UserModalContent: React.FC<IUserModalContentProps> = props => {
   const { selectedUser, onCloseClick } = props;
-
   return (
     <Wrapper>
       <CloseButton>
         <IconTextButton
           text='Close'
-          icon={ <CloseIcon size='25px'/> }
+          icon={ <RoodIcon size='25px'/> }
           onClick={ onCloseClick }
         />
       </CloseButton>
-      <UserAvatarContainer>
-        <UserAvatar text={ stringUtil.UserNameInitialsUtil(selectedUser.name) } size={ UserAvatarConst.BIG_AVATAR }/>
-      </UserAvatarContainer>
-      <UserInfoRow field='email' value={ selectedUser.email }/>
-      <UserInfoRow field='city' value={ selectedUser.address.city }/>
-      <UserInfoRow field='street' value={ selectedUser.address.street }/>
-      <UserInfoRow field='suit' value={ selectedUser.address.suite }/>
-      <UserInfoRow field='zipcode' value={ selectedUser.address.zipcode }/>
-      <UserInfoRow field='phone' value={ selectedUser.phone }/>
-      <UserInfoRow field='website' value={ selectedUser.website }/>
+      { selectedUser
+        ? <>
+          <UserAvatarContainer>
+            <UserAvatar text={ stringUtil.UserNameInitialsUtil(selectedUser.name) }
+                        size={ UserAvatarConst.BIG_AVATAR }/>
+          </UserAvatarContainer>
+          <UserInfoRow title='email' value={ selectedUser.email }/>
+          <UserInfoRow title='city' value={ selectedUser.address.city }/>
+          <UserInfoRow title='street' value={ selectedUser.address.street }/>
+          <UserInfoRow title='suit' value={ selectedUser.address.suite }/>
+          <UserInfoRow title='zipcode' value={ selectedUser.address.zipcode }/>
+          <UserInfoRow title='phone' value={ selectedUser.phone }/>
+          <UserInfoRow title='website' value={ selectedUser.website }/>
+        </>
+        : null }
     </Wrapper>
   );
 };

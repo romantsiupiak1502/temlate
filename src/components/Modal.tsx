@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 101;
-  background-color: ${({ theme }) => theme.colors.modalBackground};
+  background-color: ${ ({ theme }) => theme.colors.modalBackground };
   left: 0;
   top: 0;
 `;
@@ -24,7 +24,7 @@ const ModalContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${ ({ theme }) => theme.colors.white };
   padding: 48px 32px;
   z-index: 102;
   border-radius: 8px;
@@ -50,22 +50,23 @@ interface IModalProps {
 
 export const Modal: React.FC<IModalProps> = (props) => {
   const { children, onCrossClick, title, isVisible, isClosable } = props;
-  const el: HTMLElement | null = document.getElementById('modals')
+  const el: HTMLElement | React.DetailedReactHTMLElement<{ className: string }, HTMLElement> = document.getElementById('modals')
+    || React.createElement('div', { className: "modals" }, null);
   return ReactDOM.createPortal(
     (<>
-      {isVisible ? (
+      { isVisible ? (
         <Wrapper>
           <ModalContent>
-            {title && <Title isBold={true}>{title}</Title>}
-            {children}
-            {isClosable && (
-              <CrossIconWrapper onClick={onCrossClick}>
+            { title && <Title isBold={ true }>{ title }</Title> }
+            { children }
+            { isClosable && (
+              <CrossIconWrapper onClick={ onCrossClick }>
                 <CrossIcon/>
               </CrossIconWrapper>
-            )}
+            ) }
           </ModalContent>
         </Wrapper>
-      ) : null}
+      ) : null }
     </>), el as HTMLElement
   );
 };

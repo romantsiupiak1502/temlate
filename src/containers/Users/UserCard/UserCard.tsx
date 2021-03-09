@@ -23,23 +23,18 @@ const UserCardWrapper = styled.div`
 `;
 
 interface IUserCardProps {
-  id: number;
   name: string;
   email: string;
   city: string;
   street: string;
   phone: string;
   onUserCardClick: () => void;
-  setSelectedUserId: (id: number) => void;
 };
 
 export const UserCard: React.FC<IUserCardProps> = props => {
-  const { id, name, email, city, street, phone, onUserCardClick, setSelectedUserId } = props;
+  const { name, email, city, street, phone, onUserCardClick } = props;
   return (
-    <UserCardWrapper onClick={ () => {
-      onUserCardClick();
-      setSelectedUserId(id);
-    } }>
+    <UserCardWrapper onClick={ onUserCardClick }>
       <UserAvatarBlock userName={ name }/>
       <UserInfoBlock
         userName={ name }
