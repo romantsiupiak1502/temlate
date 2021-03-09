@@ -20,9 +20,9 @@ export const UsersContainer: React.FC = () => {
 
   const [users, setUsers] = React.useState([]);
 
-  const { id }: any = useParams();
+  const { id }: IParamsProps = useParams();
 
-  const UserModal = useModal();
+  const {closeModal: closeUserModal, openModal: openUserModal, Modal: UserModal} = useModal();
 
   React.useEffect(() => {
     apiService.get('users')
@@ -31,10 +31,10 @@ export const UsersContainer: React.FC = () => {
 
   return (
     <>
-      <UserModal.Modal>
-        <UserModalContent selectedUser={ findSelectedUser(users, id) } onCloseClick={ UserModal.closeModal }/>
-      </UserModal.Modal>
-      <Users users={ users } onUserCardClick={ UserModal.openModal }/>
+      <UserModal>
+        <UserModalContent selectedUser={ findSelectedUser(users, id) } onCloseClick={ closeUserModal }/>
+      </UserModal>
+      <Users users={ users } onUserCardClick={ openUserModal }/>
     </>
   );
 };

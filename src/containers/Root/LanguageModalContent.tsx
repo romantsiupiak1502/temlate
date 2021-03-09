@@ -12,7 +12,7 @@ export const LanguageModalContent: React.FC<ILanguageModalContentProps> = props 
   return (
     <>
       <TextButton text='English' onClick={onEnglishClick} />
-      <TextButton text='Ukraine' onClick={onUkraineClick} />
+      <TextButton text='Ukrainian' onClick={onUkraineClick} />
     </>
   );
 };

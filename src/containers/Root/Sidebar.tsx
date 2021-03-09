@@ -40,18 +40,17 @@ const SortButton = styled.div`
 interface ISidebarProps {
   onSearchByNameChange: () => void;
   onSearchByEmailChange: () => void;
-  onAddUserClick: () => void;
 }
 
 export const Sidebar: React.FC<ISidebarProps> = props => {
-  const { onSearchByNameChange, onSearchByEmailChange, onAddUserClick } = props;
+  const { onSearchByNameChange, onSearchByEmailChange } = props;
 
   return (
     <Wrapper>
       <IconTextButton
         text='Add user'
         icon={ <PlusIcon size='25px'/> }
-        onClick={ onAddUserClick }
+        onClick={ () => { } }
       />
       <InputStyled placeholder='Search by name' onChange={ onSearchByNameChange }/>
       <InputStyled placeholder='Search by email' onChange={ onSearchByEmailChange }/>

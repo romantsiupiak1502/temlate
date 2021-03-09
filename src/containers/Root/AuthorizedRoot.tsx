@@ -2,11 +2,14 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 
 import { styled } from '../../styles';
+import { useModal } from '../../hooks/useModal';
+
+import { UsersContainer } from '../Users';
 
 import { Header } from './Header';
-
 import { Sidebar } from './Sidebar';
-import { UsersContainer } from '../Users';
+import { LogoutModalContent } from './LogoutModalContent';
+import { LanguageModalContent } from './LanguageModalContent';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,23 +21,24 @@ const ContentContainer = styled.div`
   display: flex;
 `;
 
-interface IAuthorizedRootProps {
-  onLogoutClick: () => void;
-  onLanguageClick: () => void;
-  onAddUserClick: () => void;
-}
+export const AuthorizedRoot: React.FC = () => {
 
-export const AuthorizedRoot: React.FC<IAuthorizedRootProps> = props => {
-  const { onLogoutClick, onLanguageClick, onAddUserClick } = props;
+  const {openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal} = useModal();
+  const {openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal} = useModal();
 
   return (
     <Wrapper>
+      <LogoutModal title='Do you want to logout?'>
+        <LogoutModalContent onNoClick={closeLogoutModal} onYesClick={closeLogoutModal}/>
+      </LogoutModal>
+      <LanguageModal title='Choose language'>
+        <LanguageModalContent onEnglishClick={closeLanguageModal} onUkraineClick={closeLanguageModal}/>
+      </LanguageModal>
       <Header
-        onLogoutClick={ onLogoutClick }
-        onChangeLanguage={ onLanguageClick }
+        onLogoutClick={ openLogoutModal }
+        onChangeLanguage={ openLanguageModal }
         userName='Roman Tsiuapiak'
       />
-      <Wrapper>
         <ContentContainer>
           <Switch>
             <Route path='/:id?' component={ UsersContainer }/>
@@ -42,10 +46,8 @@ export const AuthorizedRoot: React.FC<IAuthorizedRootProps> = props => {
           <Sidebar
             onSearchByNameChange={ () => {} }
             onSearchByEmailChange={ () => {} }
-            onAddUserClick={ onAddUserClick }
           />
         </ContentContainer>
-      </Wrapper>
     </Wrapper>
   );
 };

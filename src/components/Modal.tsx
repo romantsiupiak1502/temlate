@@ -50,8 +50,7 @@ interface IModalProps {
 
 export const Modal: React.FC<IModalProps> = (props) => {
   const { children, onCrossClick, title, isVisible, isClosable } = props;
-  const el: HTMLElement | React.DetailedReactHTMLElement<{ className: string }, HTMLElement> = document.getElementById('modals')
-    || React.createElement('div', { className: "modals" }, null);
+  const el: HTMLElement | null = document.getElementById('modals')
   return ReactDOM.createPortal(
     (<div>
       {isVisible ? (
