@@ -2,7 +2,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 
 import { styled } from '../../styles';
-import { useModal } from '../../hooks/useModal';
+import { useModal } from '../../hooks';
+import { LanguagesConst } from '../../consts';
 
 import { UsersContainer } from '../Users';
 
@@ -28,12 +29,6 @@ export const AuthorizedRoot: React.FC = () => {
 
   return (
     <Wrapper>
-      <LogoutModal title='Do you want to logout?'>
-        <LogoutModalContent onNoClick={closeLogoutModal} onYesClick={closeLogoutModal}/>
-      </LogoutModal>
-      <LanguageModal title='Choose language'>
-        <LanguageModalContent onEnglishClick={closeLanguageModal} onUkraineClick={closeLanguageModal}/>
-      </LanguageModal>
       <Header
         onLogoutClick={ openLogoutModal }
         onChangeLanguage={ openLanguageModal }
@@ -46,8 +41,15 @@ export const AuthorizedRoot: React.FC = () => {
           <Sidebar
             onSearchByNameChange={ () => {} }
             onSearchByEmailChange={ () => {} }
+            onAddUserClick={ () => {} }
           />
         </ContentContainer>
+      <LogoutModal title='Do you want to logout?'>
+        <LogoutModalContent onCancelClick={closeLogoutModal} onConfirmClick={closeLogoutModal}/>
+      </LogoutModal>
+      <LanguageModal title='Choose language'>
+        <LanguageModalContent onLanguageChangeClick={ (LanguagesConst) => closeLanguageModal() }/>
+      </LanguageModal>
     </Wrapper>
   );
 };

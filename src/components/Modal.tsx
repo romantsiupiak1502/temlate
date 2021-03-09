@@ -52,7 +52,7 @@ export const Modal: React.FC<IModalProps> = (props) => {
   const { children, onCrossClick, title, isVisible, isClosable } = props;
   const el: HTMLElement | null = document.getElementById('modals')
   return ReactDOM.createPortal(
-    (<div>
+    (<>
       {isVisible ? (
         <Wrapper>
           <ModalContent>
@@ -66,6 +66,6 @@ export const Modal: React.FC<IModalProps> = (props) => {
           </ModalContent>
         </Wrapper>
       ) : null}
-    </div>), el as HTMLElement
+    </>), el as HTMLElement
   );
 };

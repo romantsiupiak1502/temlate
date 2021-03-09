@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { styled } from '../../../styles';
 
 import { UserAvatarBlock } from './UserAvatarBlock';
 import { UserInfoBlock } from './UserInfoBlock';
 
-const UserCardWrapper = styled(Link)`
+const UserCardWrapper = styled.div`
   width: 520px;
   height: 200px;
   margin-top: 32px;
@@ -15,8 +14,8 @@ const UserCardWrapper = styled(Link)`
   border-radius: 8px;
   padding: 16px;
   display: flex;
-  background-color: ${ ({ theme }) => theme.colors.backgroundGray};
-  text-decoration: none;
+  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
+  cursor: pointer;
 
   &:hover {
     border-color: ${ ({ theme }) => theme.colors.gray };
@@ -31,12 +30,16 @@ interface IUserCardProps {
   street: string;
   phone: string;
   onUserCardClick: () => void;
+  setSelectedUserId: (id: number) => void;
 };
 
 export const UserCard: React.FC<IUserCardProps> = props => {
-  const { id, name, email, city, street, phone, onUserCardClick } = props;
+  const { id, name, email, city, street, phone, onUserCardClick, setSelectedUserId } = props;
   return (
-    <UserCardWrapper to={`/${id}`} onClick={ onUserCardClick }>
+    <UserCardWrapper onClick={ () => {
+      onUserCardClick();
+      setSelectedUserId(id);
+    } }>
       <UserAvatarBlock userName={ name }/>
       <UserInfoBlock
         userName={ name }

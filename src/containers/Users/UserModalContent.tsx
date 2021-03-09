@@ -1,43 +1,59 @@
 import React from 'react';
 
 import { styled } from '../../styles';
-import { UserAvatar, H4 } from '../../components';
+import { IconTextButton, UserAvatar, CloseIcon } from '../../components';
 import { UserAvatarConst } from '../../consts';
 import { stringUtil } from '../../utils';
 
+import { UserInfoRow } from './UserInfoRow';
+
 const Wrapper = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
   color: ${ ({ theme }) => theme.colors.gray };
 `;
 
+const CloseButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const UserAvatarContainer = styled.div`
-  border-bottom: 2px solid;
+  border-bottom: 2px solid ${ ({ theme }) => theme.colors.black };
   padding-bottom: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-interface IUserModalContent {
+interface IUserModalContentProps {
   selectedUser: any,
   onCloseClick: () => void,
 }
 
-export const UserModalContent: React.FC<IUserModalContent> = props => {
+export const UserModalContent: React.FC<IUserModalContentProps> = props => {
   const { selectedUser, onCloseClick } = props;
+
   return (
-    <Wrapper onClick={onCloseClick}>
+    <Wrapper>
+      <CloseButton>
+        <IconTextButton
+          text='Close'
+          icon={ <CloseIcon size='25px'/> }
+          onClick={ onCloseClick }
+        />
+      </CloseButton>
       <UserAvatarContainer>
         <UserAvatar text={ stringUtil.UserNameInitialsUtil(selectedUser.name) } size={ UserAvatarConst.BIG_AVATAR }/>
       </UserAvatarContainer>
-      <H4>email: { selectedUser.email }</H4>
-      <H4>city: { selectedUser.address.city }</H4>
-      <H4>street: { selectedUser.address.street }</H4>
-      <H4>suit: { selectedUser.address.suite }</H4>
-      <H4>zipcode: { selectedUser.address.zipcode }</H4>
-      <H4>phone: { selectedUser.phone }</H4>
-      <H4>website: { selectedUser.website }</H4>
+      <UserInfoRow field='email' value={ selectedUser.email }/>
+      <UserInfoRow field='city' value={ selectedUser.address.city }/>
+      <UserInfoRow field='street' value={ selectedUser.address.street }/>
+      <UserInfoRow field='suit' value={ selectedUser.address.suite }/>
+      <UserInfoRow field='zipcode' value={ selectedUser.address.zipcode }/>
+      <UserInfoRow field='phone' value={ selectedUser.phone }/>
+      <UserInfoRow field='website' value={ selectedUser.website }/>
     </Wrapper>
   );
-}
+};

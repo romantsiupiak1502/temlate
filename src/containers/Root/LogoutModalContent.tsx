@@ -1,10 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { Button, TextButton } from '../../components';
 
 const Wrapper = styled.div`
+  width: 300px;
   display: flex;
   align-items: center;
   padding-top: 32px;
@@ -16,18 +16,17 @@ const ButtonStyled = styled(Button)`
 `;
 
 interface ILogoutModalContentProps {
-  onNoClick: () => void;
-  onYesClick: () => void;
+  onCancelClick: () => void;
+  onConfirmClick: () => void;
 }
 
 export const LogoutModalContent: React.FC<ILogoutModalContentProps> = props => {
-  const { onNoClick, onYesClick } = props;
-  const { t } = useTranslation();
+  const { onCancelClick, onConfirmClick } = props;
 
   return (
     <Wrapper>
-        <TextButton text='no' onClick={ onNoClick }/>
-        <ButtonStyled text='Yes, I want' onClick={ onYesClick }/>
+        <TextButton text='cancel' onClick={ onCancelClick }/>
+        <ButtonStyled text='Confirm' onClick={ onConfirmClick }/>
     </Wrapper>
   );
 };

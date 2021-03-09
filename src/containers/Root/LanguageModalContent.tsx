@@ -1,18 +1,30 @@
 import React from 'react';
 
 import { TextButton } from '../../components';
+import { LanguagesConst } from '../../consts';
+import { styled } from '../../styles';
+
+const Wrapper = styled.div`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 interface ILanguageModalContentProps {
-  onEnglishClick: () => void;
-  onUkraineClick: () => void;
+  onLanguageChangeClick: (language: LanguagesConst) => void;
 }
 
 export const LanguageModalContent: React.FC<ILanguageModalContentProps> = props => {
-  const { onEnglishClick, onUkraineClick } = props;
+  const { onLanguageChangeClick } = props;
   return (
-    <>
-      <TextButton text='English' onClick={onEnglishClick} />
-      <TextButton text='Ukrainian' onClick={onUkraineClick} />
-    </>
+    <Wrapper>
+      { Object.values(LanguagesConst).map((item) =>
+        <TextButton
+          text={ item }
+          onClick={ () => onLanguageChangeClick(item) }
+        />
+      ) }
+    </Wrapper>
   );
 };

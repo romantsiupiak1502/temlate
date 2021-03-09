@@ -13,9 +13,10 @@ const TextButtonWrapper = styled.div<ITextButtonStyledProps>`
   padding: 16px;
   cursor: pointer;
   color: ${ ({ theme, isDisabled }) => isDisabled ? theme.colors.gray : theme.colors.primary };
+
   &:hover {
-  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
-}
+    background-color: ${ ({ theme }) => theme.colors.backgroundGray };
+  }
 `;
 
 interface ITextButtonProps {
@@ -26,11 +27,11 @@ interface ITextButtonProps {
 
 export const TextButton: React.FC<ITextButtonProps> = props => {
   const { text, onClick, isDisabled } = props;
-    return (
-        <TextButtonWrapper onClick={onClick} isDisabled={isDisabled}>
-          <H3>
-            {text}
-          </H3>
-        </TextButtonWrapper>
-    );
+  return (
+    <TextButtonWrapper onClick={ onClick } isDisabled={ isDisabled }>
+      <H3>
+        { text }
+      </H3>
+    </TextButtonWrapper>
+  );
 };

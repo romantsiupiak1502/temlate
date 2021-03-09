@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { styled } from "../../styles";
+import { styled } from '../../styles';
+import { useModal } from '../../hooks';
 
 import { UserCard } from './UserCard';
+import { UserModalContent } from './UserModalContent';
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,11 +31,14 @@ export type IUsersItem = {
 
 interface IUsersProps {
   users: IUsersItem[];
-  onUserCardClick: () => void;
+  selectedUser: IUsersItem | object;
+  setSelectedUserId: (id: number) => void;
 }
 
 export const Users: React.FC<IUsersProps> = props => {
-  const { users, onUserCardClick } = props;
+  const { users, selectedUser, setSelectedUserId } = props;
+
+  const { closeModal: closeUserModal, openModal: openUserModal, Modal: UserModal } = useModal();
 
   return (
     <Wrapper>
@@ -45,9 +50,13 @@ export const Users: React.FC<IUsersProps> = props => {
           city={ item.address.city }
           street={ item.address.street }
           phone={ item.phone }
-          onUserCardClick={onUserCardClick}
+          setSelectedUserId={setSelectedUserId}
+          onUserCardClick={ openUserModal }
         />
       ) }
+      <UserModal>
+        <UserModalContent selectedUser={ selectedUser } onCloseClick={ closeUserModal }/>
+      </UserModal>
     </Wrapper>
   );
 };
