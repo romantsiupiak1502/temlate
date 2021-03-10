@@ -1,5 +1,34 @@
 {
   "translation": {
-    "FIELD_REQUIRED": "Field is required"
+    "FIELD_REQUIRED": "Field is required",
+    "BACK_BUTTON_ABOUT_US": "Back",
+    "ABOUT_US_TITLE": "It's time to tell you about us",
+    "TEXT_ABOUT_US": "Hello, we are a group of young developers who are happy to welcome you to our social network. If you have not yet registered, do not hesitate and try our product soon, and if you have tried, enjoy it.",
+    "SIGN_IN": "Sign in",
+    "SIGN_UP": "Sign up",
+    "ABOUT_US": "About us",
+    "ENTER_YOUR_EMAIL": "Enter your email",
+    "ENTER_YOUR_PASSWORD": "Enter your password",
+    "BIRTHDAY": "Birthday",
+    "ENTER_YOUR_NAME": "Enter your name",
+    "ENTER_YOUR_SURNAME": "Enter your surname",
+    "REPEAT_PASSWORD": "Repeat your password",
+    "ADD_USER": "Add user",
+    "SEARCH_BY_NAME": "Search by name",
+    "SEARCH_BY_EMAIL": "Search by email",
+    "SORT": "Sort",
+    "CANCEL": "Cancel",
+    "CONFIRM": "Confirm",
+    "LOGOUT": "Logout",
+    "LANGUAGE": "Language",
+    "SORT_BY_NAME": "Sort by name",
+    "SORT_BY_EMAIL": "Sort by email",
+    "EMAIL": "email",
+    "STREET": "street",
+    "PHONE": "phone",
+    "CITY": "city",
+    "SUIT": "suit",
+    "ZIPCODE": "zipcode",
+    "WEBSITE": "website"
   }
 }

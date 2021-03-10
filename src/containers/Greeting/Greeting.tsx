@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { LoginLandscapeImage } from '../../assets';
 import { TabsContainer, Tab, H4} from '../../components';
@@ -40,6 +41,7 @@ const Picture = styled.img`
 `;
 
 export const Greeting = () => {
+  const { t } = useTranslation();
 
   const [activeTab, setActiveTab] = React.useState(LoginRegistrationConst.LOGIN);
 
@@ -59,15 +61,15 @@ export const Greeting = () => {
           <Tab
             onClick={ () => setActiveTab(LoginRegistrationConst.LOGIN) }
             isActive={ activeTab === LoginRegistrationConst.LOGIN }
-            text='Sign in' />
+            text={t("SIGN_IN")} />
           <Tab
             onClick={ () => setActiveTab( LoginRegistrationConst.REGISTRATION) }
             isActive={ activeTab === LoginRegistrationConst.REGISTRATION }
-            text='Sign up' />
+            text={t("SIGN_UP")} />
         </TabsContainer>
         { activeForm }
         <AboutUsLink to='/aboutus'>
-          <H4>About us</H4>
+          <H4>{t("ABOUT_US")}</H4>
         </AboutUsLink>
       </InputWrapper>
       <Picture src={ LoginLandscapeImage }/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { Button, TextButton } from '../../components';
@@ -22,11 +23,12 @@ interface ILogoutModalContentProps {
 
 export const LogoutModalContent: React.FC<ILogoutModalContentProps> = props => {
   const { onCancelClick, onConfirmClick } = props;
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
-        <TextButton text='Cancel' onClick={ onCancelClick }/>
-        <ButtonStyled text='Confirm' onClick={ onConfirmClick }/>
+        <TextButton text={t("CANCEL")} onClick={ onCancelClick }/>
+        <ButtonStyled text={t("CONFIRM")} onClick={ onConfirmClick }/>
     </Wrapper>
   );
 };

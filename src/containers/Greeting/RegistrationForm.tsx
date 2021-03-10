@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { DatePickerField, InputField, PasswordInputField } from '../../components';
 import { styled } from '../../styles';
@@ -28,6 +29,8 @@ const PasswordInputStyled = styled(PasswordInputField)`
 `;
 
 export const RegistrationForm = () => {
+  const { t } = useTranslation();
+
   const now = new Date();
   const date = now.getFullYear() + '-' + now.getMonth() + 1 + '-' + now.getDate();
   return (
@@ -41,49 +44,56 @@ export const RegistrationForm = () => {
       } }
       onSubmit={ () => {} }
     >
-      { ({values}) => (
-      <FormStyled>
-        <Field
-          name="date"
-          label="Birthday"
-          defaultValue={date}
-          validate={formErrorUtil.combineValidation(
-            [formErrorUtil.date, formErrorUtil.age])}
-          component={ DatePickerField } />
-        <FieldsRow>
+      { ({ values }) => (
+        <FormStyled>
           <Field
-            name="name"
-            placeholder="Enter your name"
-            validate={formErrorUtil.required}
-            component={ InputFieldStyled }/>
+            name="date"
+            label={ t("BIRTHDAY") }
+            defaultValue={ date }
+            validate={ formErrorUtil.combineValidation([formErrorUtil.date, formErrorUtil.age]) }
+            component={ DatePickerField }
+          />
+          <FieldsRow>
+            <Field
+              name="name"
+              placeholder={t("ENTER_YOUR_NAME")}
+              validate={ formErrorUtil.required }
+              component={ InputFieldStyled }
+            />
+            <Field
+              name="surname"
+              placeholder={t("ENTER_YOUR_SURNAME")}
+              validate={ formErrorUtil.required }
+              component={ InputFieldStyled }
+            />
+          </FieldsRow>
           <Field
-            name="surname"
-            placeholder="Enter your surname"
-            validate={formErrorUtil.required}
-            component={ InputFieldStyled }/>
-        </FieldsRow>
-        <Field
-          name="email"
-          placeholder="Enter your email"
-          validate={formErrorUtil.combineValidation(
-            [formErrorUtil.required, formErrorUtil.email])}
-          component={ EmailInput }/>
-        <FieldsRow>
-          <Field
-            name="password"
-            placeholder="Enter your password"
-            validate={formErrorUtil.combineValidation(
-              [formErrorUtil.required, formErrorUtil.password])}
-            component={ PasswordInputStyled }/>
-          <Field
-            name="repeatPassword"
-            placeholder="Repeat your password"
-            validate={ (value: string) => formErrorUtil.passwordRequirements(values.password, value)}
-            component={ PasswordInputStyled }/>
-        </FieldsRow>
-        <SubmitButton type='submit' text='Sign up' onClick={ () => {}} />
-      </FormStyled>
-        )}
+            name="email"
+            placeholder={ t("ENTER_YOUR_EMAIL") }
+            validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.email]) }
+            component={ EmailInput }
+          />
+          <FieldsRow>
+            <Field
+              name="password"
+              placeholder={ t("ENTER_YOUR_PASSWORD") }
+              validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.password]) }
+              component={ PasswordInputStyled }
+            />
+            <Field
+              name="repeatPassword"
+              placeholder={t("REPEAT_PASSWORD")}
+              validate={ (value: string) => formErrorUtil.passwordRequirements(values.password, value) }
+              component={ PasswordInputStyled }
+            />
+          </FieldsRow>
+          <SubmitButton
+            type='submit'
+            text={ t("SIGN_UP") }
+            onClick={ () => {} }
+          />
+        </FormStyled>
+      ) }
     </Formik>
   );
 }
