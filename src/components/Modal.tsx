@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 101;
-  background-color: rgba(${ ({ theme }) => theme.colors.backgroundDarkGray });
+  background-color: ${ ({ theme }) => theme.colors.backgroundDarkGray };
   left: 0;
   top: 0;
 `;
