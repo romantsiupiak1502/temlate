@@ -13,15 +13,15 @@ const TextStyled = styled(H4)`
 
 interface IUserInfoModalContentProps {
   title: string;
-  value: string | undefined;
+  value: string;
 }
 
 export const UserInfoRow: React.FC<IUserInfoModalContentProps> = props => {
   const { title, value } = props;
   return (
     <Wrapper>
-      <TextStyled isBold={true}>{title}: </TextStyled>
-      <TextStyled>{value}</TextStyled>
+      <TextStyled isBold={ true }>{ title }: </TextStyled>
+      <TextStyled>{ value }</TextStyled>
     </Wrapper>
   );
 };

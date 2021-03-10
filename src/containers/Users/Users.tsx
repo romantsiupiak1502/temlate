@@ -5,6 +5,7 @@ import { useModal } from '../../hooks';
 
 import { UserCard } from './UserCard';
 import { UserModalContent } from './UserModalContent';
+import { IUsersItem } from './index';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,22 +13,6 @@ const Wrapper = styled.div`
   height: calc(100vh - 75px);
   overflow-y: scroll;
 `;
-
-type IUsersAddress = {
-  city: string,
-  street: string,
-  suite?: string,
-  zipcode?: string,
-};
-
-export type IUsersItem = {
-  id: number,
-  name: string,
-  email: string,
-  address: IUsersAddress,
-  phone: string,
-  website?: string,
-}
 
 interface IUsersProps {
   users: IUsersItem[];
@@ -38,7 +23,7 @@ interface IUsersProps {
 export const Users: React.FC<IUsersProps> = props => {
   const { users, selectedUser, setSelectedUserId } = props;
 
-  const { closeModal: closeUserInfoModal, openModal: openUserInfoModal, Modal: UserInfoModal } = useModal();
+  const { openModal: openUserInfoModal, Modal: UserInfoModal } = useModal();
 
   return (
     <Wrapper>
@@ -56,8 +41,8 @@ export const Users: React.FC<IUsersProps> = props => {
           } }
         />
       ) }
-      <UserInfoModal>
-        <UserModalContent selectedUser={ selectedUser } onCloseClick={ closeUserInfoModal }/>
+      <UserInfoModal title='User profile' isClosable={ true }>
+        <UserModalContent selectedUser={ selectedUser }/>
       </UserInfoModal>
     </Wrapper>
   );
