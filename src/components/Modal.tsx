@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 101;
-  background-color: ${ ({ theme }) => theme.colors.modalBackground };
+  background-color: rgba(${ ({ theme }) => theme.colors.backgroundDarkGray });
   left: 0;
   top: 0;
 `;
@@ -24,6 +24,8 @@ const ModalContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: ${ ({ theme }) => theme.colors.white };
   padding: 48px 32px;
   z-index: 102;

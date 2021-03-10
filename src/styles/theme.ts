@@ -8,6 +8,7 @@ type ITheme = {
     gradient1: string;
     gradient2: string;
     backgroundGray: string;
+    backgroundDarkGray: string;
   }
 };
 
@@ -21,5 +22,6 @@ export const theme: ITheme = {
     gradient1: '#ffafbd, #ffb3b4, #ffb7ac, #ffbda5, #ffc3a0',
     gradient2: '#2193b0, #37a3bf, #4ab3ce, #5cc4de, #6dd5ed',
     backgroundGray: '#FAF8FF',
+    backgroundDarkGray: '70, 70, 70, 0.3',
   }
 }
