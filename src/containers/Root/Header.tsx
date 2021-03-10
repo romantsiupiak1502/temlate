@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import {
   H1,
@@ -15,12 +16,12 @@ import { styled } from '../../styles';
 import { UserAvatarConst } from '../../consts';
 import { stringUtil } from '../../utils';
 
-export type IGetDropdownItems = (onLogoutClick: () => void, onChangeLanguage: () => void) => IDropdownItem[];
+export type IGetDropdownItems = (onLogoutClick: () => void, onChangeLanguage: () => void, t: any) => IDropdownItem[];
 
-const getDropdownItems: IGetDropdownItems = (onLogoutClick, onChangeLanguage) => {
+const getDropdownItems: IGetDropdownItems = (onLogoutClick, onChangeLanguage, t ) => {
   return [
-    { text: 'Logout', icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
-    { text: 'Language', icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
+    { text: t("LOGOUT"), icon: <LogoutIcon size='25px'/>, onClick: onLogoutClick },
+    { text: t("LANGUAGE"), icon: <LanguageIcon size='25px'/>, onClick: onChangeLanguage }
   ];
 }
 
@@ -51,6 +52,7 @@ interface IHeaderProps {
 
 export const Header: React.FC<IHeaderProps> = props => {
   const { onLogoutClick, onChangeLanguage, userName } = props;
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
@@ -63,7 +65,7 @@ export const Header: React.FC<IHeaderProps> = props => {
           size={ UserAvatarConst.SMALL_AVATAR }
         />
         <Dropdown
-          items={ getDropdownItems(onLogoutClick, onChangeLanguage) }
+          items={ getDropdownItems(onLogoutClick, onChangeLanguage, t) }
           Component={ <IconTextButton
             text={ userName }
             icon={ <DownArrowIcon size='20px'/> }

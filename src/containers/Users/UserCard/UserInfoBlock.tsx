@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../../styles';
 import { H4, H1 } from '../../../components';
@@ -35,10 +36,11 @@ interface IUserInfoBlockProps {
   city: string;
   street: string;
   phone: string;
-};
+}
 
 export const UserInfoBlock: React.FC<IUserInfoBlockProps> = props => {
   const { userName, email, city, street, phone } = props;
+  const { t } = useTranslation();
 
   return (
     <UserInform>
@@ -47,9 +49,9 @@ export const UserInfoBlock: React.FC<IUserInfoBlockProps> = props => {
         <TextStyled>{ city }</TextStyled>
       </UserNameContainer>
       <UserInfo>
-        <TextStyled>email: { email }</TextStyled>
-        <TextStyled>street: { street }</TextStyled>
-        <TextStyled>phone: { phone }</TextStyled>
+        <TextStyled>{t("EMAIL")}: { email }</TextStyled>
+        <TextStyled>{t("STREET")}: { street }</TextStyled>
+        <TextStyled>{t("PHONE")}: { phone }</TextStyled>
       </UserInfo>
     </UserInform>
   );
