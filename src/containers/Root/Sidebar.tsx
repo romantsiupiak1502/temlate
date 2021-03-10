@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import {
@@ -13,10 +14,10 @@ import {
 
 import { IGetDropdownItems } from './Header';
 
-const getDropdownItems: IGetDropdownItems = (onSortByName, onSortByEmail) => {
+const getDropdownItems: IGetDropdownItems = (onSortByName, onSortByEmail, t) => {
   return [
-    { text: 'Sort by name', icon: <UserIcon size='25px'/>, onClick: onSortByName },
-    { text: 'Sort by email', icon: <EmailIcon size='25px'/>, onClick: onSortByEmail },
+    { text: t("SORT_BY_NAME"), icon: <UserIcon size='25px'/>, onClick: onSortByName },
+    { text: t("SORT_BY_EMAIL"), icon: <EmailIcon size='25px'/>, onClick: onSortByEmail },
   ];
 }
 
@@ -45,21 +46,22 @@ interface ISidebarProps {
 
 export const Sidebar: React.FC<ISidebarProps> = props => {
   const { onSearchByNameChange, onSearchByEmailChange, onAddUserClick } = props;
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
       <IconTextButton
-        text='Add user'
+        text={t("ADD_USER")}
         icon={ <PlusIcon size='25px'/> }
         onClick={ onAddUserClick }
       />
-      <InputStyled placeholder='Search by name' onChange={ onSearchByNameChange }/>
-      <InputStyled placeholder='Search by email' onChange={ onSearchByEmailChange }/>
+      <InputStyled placeholder={t("SEARCH_BY_NAME")} onChange={ onSearchByNameChange }/>
+      <InputStyled placeholder={t("SEARCH_BY_EMAIL")} onChange={ onSearchByEmailChange }/>
       <SortButton>
         <Dropdown
-          items={ getDropdownItems(() => {}, () => {}) }
+          items={ getDropdownItems(() => {}, () => {}, t) }
           Component={ <IconTextButton
-            text='Sort'
+            text={t("SORT")}
             icon={ <DownArrowIcon size='15px'/> }
           /> }
         />
