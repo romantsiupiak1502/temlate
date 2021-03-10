@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { IStore } from '../../store/types';
 import { styled } from '../../styles';
 
-import { AuthorizedRoot } from "./AuthorizedRoot";
+import { AuthorizedRoot } from './AuthorizedRoot';
 import { UnauthorizedRoot } from "./UnauthorizedRoot";
 
 const Wrapper = styled.div`
@@ -19,7 +19,7 @@ export const Root = () => {
   return (
     <Wrapper>
       { isLoggedIn ? (
-        <AuthorizedRoot/>
+        <AuthorizedRoot />
       ) : (
         <UnauthorizedRoot/>
       ) }

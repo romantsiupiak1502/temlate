@@ -14,7 +14,7 @@ const UserCardWrapper = styled.div`
   border-radius: 8px;
   padding: 16px;
   display: flex;
-  background-color: ${ ({ theme }) => theme.colors.backgroundGray};
+  background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   cursor: pointer;
 
   &:hover {
@@ -23,18 +23,18 @@ const UserCardWrapper = styled.div`
 `;
 
 interface IUserCardProps {
-  id: number;
   name: string;
   email: string;
   city: string;
   street: string;
   phone: string;
+  onUserCardClick: () => void;
 };
 
 export const UserCard: React.FC<IUserCardProps> = props => {
-  const { id, name, email, city, street, phone } = props;
+  const { name, email, city, street, phone, onUserCardClick } = props;
   return (
-    <UserCardWrapper>
+    <UserCardWrapper onClick={ onUserCardClick }>
       <UserAvatarBlock userName={ name }/>
       <UserInfoBlock
         userName={ name }
