@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
@@ -23,7 +24,7 @@ const ContentContainer = styled.div`
 `;
 
 export const AuthorizedRoot: React.FC = () => {
-
+  const { t } = useTranslation();
   const { openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal } = useModal();
   const { openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal } = useModal();
 
@@ -44,10 +45,10 @@ export const AuthorizedRoot: React.FC = () => {
           onAddUserClick={ () => {} }
         />
       </ContentContainer>
-      <LogoutModal title='Do you want to logout?'>
+      <LogoutModal title={t("DO_YOU_WANT_TO_LOGOUT")}>
         <LogoutModalContent onCancelClick={ closeLogoutModal } onConfirmClick={ closeLogoutModal }/>
       </LogoutModal>
-      <LanguageModal title='Choose language'>
+      <LanguageModal title={t("CHANGE_LANGUAGE")} isClosable={true}>
         <LanguageModalContent onLanguageChangeClick={ language => {
           languageService.changeLanguage(language);
           closeLanguageModal();

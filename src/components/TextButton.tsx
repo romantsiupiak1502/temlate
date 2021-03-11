@@ -3,14 +3,12 @@ import React from 'react';
 import { styled } from '../styles';
 import { H3 } from './Text';
 
-interface ITextButtonStyledProps {
+export interface ITextButtonStyledProps {
   isDisabled?: boolean
 }
 
-const TextButtonWrapper = styled.div<ITextButtonStyledProps>`
-  width: max-content;
-  height: max-content;
-  padding: 16px;
+export const TextButtonWrapper = styled.div<ITextButtonStyledProps>`
+  padding: 8px 32px;
   cursor: pointer;
   color: ${ ({ theme, isDisabled }) => isDisabled ? theme.colors.gray : theme.colors.primary };
 

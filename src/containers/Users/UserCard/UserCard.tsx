@@ -14,12 +14,19 @@ const UserCardWrapper = styled.div`
   border-radius: 8px;
   padding: 16px;
   display: flex;
+  align-items: center;
   background-color: ${ ({ theme }) => theme.colors.backgroundGray };
   cursor: pointer;
 
   &:hover {
     border-color: ${ ({ theme }) => theme.colors.gray };
   }
+`;
+
+const USerInfoBlockContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 interface IUserCardProps {
@@ -36,13 +43,15 @@ export const UserCard: React.FC<IUserCardProps> = props => {
   return (
     <UserCardWrapper onClick={ onUserCardClick }>
       <UserAvatarBlock userName={ name }/>
-      <UserInfoBlock
-        userName={ name }
-        email={ email }
-        city={ city }
-        street={ street }
-        phone={ phone }
-      />
+      <USerInfoBlockContainer>
+        <UserInfoBlock
+          userName={ name }
+          email={ email }
+          city={ city }
+          street={ street }
+          phone={ phone }
+        />
+      </USerInfoBlockContainer>
     </UserCardWrapper>
   );
 };

@@ -29,6 +29,10 @@
     "CITY": "city",
     "SUIT": "suit",
     "ZIPCODE": "zipcode",
-    "WEBSITE": "website"
-  }
+    "WEBSITE": "website",
+    "DO_YOU_WANT_TO_LOGOUT": "Do you want to logout?",
+    "CHANGE_LANGUAGE": "Change language",
+    "USER_PROFILE": "User profile",
+    "en": "English"
+    }
 }
