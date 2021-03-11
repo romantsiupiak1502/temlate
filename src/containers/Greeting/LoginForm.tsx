@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { Button, InputField, PasswordInputField } from "../../components";
@@ -23,6 +24,8 @@ export const FormStyled = styled(Form)`
 `;
 
 export const LoginForm = () => {
+  const { t } = useTranslation();
+
   return (
     <Formik
       initialValues={{
@@ -34,15 +37,19 @@ export const LoginForm = () => {
         <FormStyled>
           <Field
             name="email"
-            placeholder="Enter your email"
+            placeholder={t("ENTER_YOUR_EMAIL")}
             validate={formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.email])}
             component={ InputField }/>
           <Field
             name="password"
-            placeholder="Enter your password"
+            placeholder={t("ENTER_YOUR_PASSWORD")}
             validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.password])}
             component={ PasswordInputStyled }/>
-          <SubmitButton type="submit" text='Submit' onClick={ () => {} } />
+          <SubmitButton
+            type="submit"
+            text={t("SIGN_IN")}
+            onClick={ () => {} }
+          />
         </FormStyled>
     </Formik>
   );

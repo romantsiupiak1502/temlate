@@ -29,7 +29,7 @@ const AvatarText = styled(H2)`
 interface IUserAvatarProps {
   text: string,
   size: UserAvatarConst
-  onClick: () => void,
+  onClick?: () => void,
 }
 
 export const UserAvatar: React.FC<IUserAvatarProps> = props => {

@@ -8,7 +8,7 @@ import { IFormComponent, withFormField } from './withFormField';
 type IInputProps = React.ComponentPropsWithoutRef<'input'> & IFormComponent;
 
 export const inputStyles = css<IFormComponent>`
-  width: 100%;
+  display: flex;
   padding: 10px;
   font-size: 15px;
   box-shadow: none;
