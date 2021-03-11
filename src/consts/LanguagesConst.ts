@@ -1,4 +1,4 @@
 export enum LanguagesConst {
   English = 'en',
-  "Українська" = 'ua',
+  Ukrainian = 'ua',
 }

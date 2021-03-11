@@ -69,23 +69,23 @@ export const ButtonLong: React.FC<IButtonProps> = props => {
 };
 
 interface IConfirmationButtonWrapperProps {
-  isConfirmButtonRed: boolean;
+  isConfirmButtonRed?: boolean;
 }
 
 const ConfirmationButtonsWrapper = styled.div<IConfirmationButtonWrapperProps>`
   .confirm-button {
     margin-left: 24px;
-    background-color: ${({ isConfirmButtonRed, theme }) => isConfirmButtonRed && theme.colors.error};
+    background-color: ${({ isConfirmButtonRed, theme }) => isConfirmButtonRed && theme.colors.red };
   }
 `;
 
 interface IConfirmationButtonProps extends IConfirmationButtonWrapperProps{
   confirmButtonText: string;
   confirmButtonOnClick: () => void;
-  confirmButtonDisabled: boolean;
+  confirmButtonDisabled?: boolean;
   denyButtonText: string;
   denyButtonOnClick: () => void;
-  denyButtonDisabled: boolean;
+  denyButtonDisabled?: boolean;
 }
 
 export const ConfirmationButton: React.FC<IConfirmationButtonProps> = props => {

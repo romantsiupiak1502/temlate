@@ -23,7 +23,7 @@ const UserCardWrapper = styled.div`
   }
 `;
 
-const USerInfoBlockContainer = styled.div`
+const UserInfoBlockContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -40,10 +40,11 @@ interface IUserCardProps {
 
 export const UserCard: React.FC<IUserCardProps> = props => {
   const { name, email, city, street, phone, onUserCardClick } = props;
+
   return (
     <UserCardWrapper onClick={ onUserCardClick }>
       <UserAvatarBlock userName={ name }/>
-      <USerInfoBlockContainer>
+      <UserInfoBlockContainer>
         <UserInfoBlock
           userName={ name }
           email={ email }
@@ -51,7 +52,7 @@ export const UserCard: React.FC<IUserCardProps> = props => {
           street={ street }
           phone={ phone }
         />
-      </USerInfoBlockContainer>
+      </UserInfoBlockContainer>
     </UserCardWrapper>
   );
 };
