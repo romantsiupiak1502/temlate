@@ -6,8 +6,13 @@ import { styled } from '../../styles';
 import { Button, InputField, PasswordInputField } from "../../components";
 import { formErrorUtil } from '../../utils';
 
-export const PasswordInputStyled = styled(PasswordInputField)`
-  margin-top: 24px;
+const PasswordInputStyled = styled(PasswordInputField)`
+  margin-top: 16px;
+  width: 388px;
+`;
+
+export const InputFieldStyled = styled(InputField)`
+  width: 388px;
 `;
 
 export const SubmitButton = styled(Button)`
@@ -15,7 +20,7 @@ export const SubmitButton = styled(Button)`
 `;
 
 export const FormStyled = styled(Form)`
-  width: 430px;
+  width: 420px;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -39,7 +44,7 @@ export const LoginForm = () => {
             name="email"
             placeholder={t("ENTER_YOUR_EMAIL")}
             validate={formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.email])}
-            component={ InputField }/>
+            component={ InputFieldStyled }/>
           <Field
             name="password"
             placeholder={t("ENTER_YOUR_PASSWORD")}
