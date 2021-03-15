@@ -6,26 +6,11 @@ import { DatePickerField, InputField, PasswordInputField } from '../../component
 import { styled } from '../../styles';
 import { formErrorUtil } from '../../utils';
 
-import { FormStyled, SubmitButton } from './LoginForm';
+import { FormStyled, SubmitButton, InputFieldStyled } from './LoginForm';
 
 const FieldsRow = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const InputFieldStyled = styled(InputField)`
-  width: 88%;
-`;
-
-const EmailInput = styled(InputField)`
-  width: 94%;
-`;
-
-const PasswordInputStyled = styled(PasswordInputField)`
-  margin-top: 24px;
-  width: 88%;
 `;
 
 export const RegistrationForm = () => {
@@ -58,33 +43,33 @@ export const RegistrationForm = () => {
               name="name"
               placeholder={t("ENTER_YOUR_NAME")}
               validate={ formErrorUtil.required }
-              component={ InputFieldStyled }
+              component={ InputField }
             />
             <Field
               name="surname"
               placeholder={t("ENTER_YOUR_SURNAME")}
               validate={ formErrorUtil.required }
-              component={ InputFieldStyled }
+              component={ InputField }
             />
           </FieldsRow>
           <Field
             name="email"
             placeholder={ t("ENTER_YOUR_EMAIL") }
             validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.email]) }
-            component={ EmailInput }
+            component={ InputFieldStyled }
           />
           <FieldsRow>
             <Field
               name="password"
               placeholder={ t("ENTER_YOUR_PASSWORD") }
               validate={ formErrorUtil.combineValidation([formErrorUtil.required, formErrorUtil.password]) }
-              component={ PasswordInputStyled }
+              component={ PasswordInputField }
             />
             <Field
               name="repeatPassword"
               placeholder={t("REPEAT_PASSWORD")}
               validate={ (value: string) => formErrorUtil.passwordRequirements(values.password, value) }
-              component={ PasswordInputStyled }
+              component={ PasswordInputField }
             />
           </FieldsRow>
           <SubmitButton

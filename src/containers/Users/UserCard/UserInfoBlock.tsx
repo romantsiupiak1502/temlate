@@ -7,8 +7,6 @@ import { H4, H1 } from '../../../components';
 const UserInform = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 const UserNameContainer = styled.div`
@@ -30,6 +28,11 @@ const UserInfo = styled.div`
   justify-content: center;
 `;
 
+const UserInfoText = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 interface IUserInfoBlockProps {
   userName: string;
   email: string;
@@ -49,9 +52,18 @@ export const UserInfoBlock: React.FC<IUserInfoBlockProps> = props => {
         <TextStyled>{ city }</TextStyled>
       </UserNameContainer>
       <UserInfo>
-        <TextStyled>{t("EMAIL")}: { email }</TextStyled>
-        <TextStyled>{t("STREET")}: { street }</TextStyled>
-        <TextStyled>{t("PHONE")}: { phone }</TextStyled>
+        <UserInfoText>
+          <TextStyled>{ t("EMAIL") }:</TextStyled>
+          <TextStyled>{ email }</TextStyled>
+        </UserInfoText>
+        <UserInfoText>
+          <TextStyled>{ t("STREET") }:</TextStyled>
+          <TextStyled>{ street }</TextStyled>
+        </UserInfoText>
+        <UserInfoText>
+          <TextStyled>{ t("PHONE") }:</TextStyled>
+          <TextStyled>{ phone }</TextStyled>
+        </UserInfoText>
       </UserInfo>
     </UserInform>
   );

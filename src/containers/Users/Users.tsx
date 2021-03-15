@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
@@ -22,6 +23,7 @@ interface IUsersProps {
 
 export const Users: React.FC<IUsersProps> = props => {
   const { users, selectedUser, setSelectedUserId } = props;
+  const { t } = useTranslation();
 
   const { openModal: openUserInfoModal, Modal: UserInfoModal } = useModal();
 
@@ -41,7 +43,7 @@ export const Users: React.FC<IUsersProps> = props => {
           } }
         />
       ) }
-      <UserInfoModal title='User profile' isClosable={ true }>
+      <UserInfoModal title={t("USER_PROFILE")} isClosable={ true }>
         <UserModalContent selectedUser={ selectedUser }/>
       </UserInfoModal>
     </Wrapper>
