@@ -23,12 +23,17 @@
     "LANGUAGE": "Мова",
     "SORT_BY_NAME": "Сортувати за ім'ям",
     "SORT_BY_EMAIL": "Сортувати за поштою",
-    "EMAIL": "пошта",
-    "STREET": "вулиця",
-    "PHONE": "телефон",
-    "CITY": "місто",
-    "SUIT": "апартаменти",
-    "ZIPCODE": "поштовий індекс",
-    "WEBSITE": "вебсайт"
+    "EMAIL": "Пошта",
+    "STREET": "Вулиця",
+    "PHONE": "Телефон",
+    "CITY": "Місто",
+    "SUIT": "Номер будинку",
+    "ZIPCODE": "Індекс",
+    "WEBSITE": "Сайт",
+    "DO_YOU_WANT_TO_LOGOUT": "Бажаєте вийти?",
+    "CHANGE_LANGUAGE": "Змінити мову",
+    "USER_PROFILE": "Профіль користувача",
+    "en": "English",
+    "ua": "Українська"
   }
 }

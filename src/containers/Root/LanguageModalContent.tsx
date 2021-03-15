@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { TextButton } from '../../components';
 import { LanguagesConst } from '../../consts';
@@ -17,13 +18,12 @@ interface ILanguageModalContentProps {
 
 export const LanguageModalContent: React.FC<ILanguageModalContentProps> = props => {
   const { onLanguageChangeClick } = props;
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       { Object.values(LanguagesConst).map((item) =>
-        <TextButton
-          text={ item }
-          onClick={ () => onLanguageChangeClick(item) }
-        />
+        <TextButton text={ t(item) } onClick={ () => onLanguageChangeClick(item) }/>
       ) }
     </Wrapper>
   );
