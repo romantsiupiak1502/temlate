@@ -8,7 +8,7 @@ import { inputStyles } from './Input';
 
 const Wrapper = styled.div<IFormComponent>`
   ${inputStyles};
-  width: 94%;
+  width: 388px;
   margin-top: 4px;
 `;
 
