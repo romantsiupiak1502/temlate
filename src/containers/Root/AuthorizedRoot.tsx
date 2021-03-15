@@ -1,9 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom'
 
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
 import { languageService } from '../../services';
+import { onSearchByNameChangeAction, onSearchByEmailChangeAction, sortByNameAction, sortByEmailAction } from '../../store/users';
 
 import { UsersContainer } from '../Users';
 
@@ -23,7 +25,7 @@ const ContentContainer = styled.div`
 `;
 
 export const AuthorizedRoot: React.FC = () => {
-
+  const dispatch = useDispatch();
   const { openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal } = useModal();
   const { openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal } = useModal();
 
@@ -39,8 +41,10 @@ export const AuthorizedRoot: React.FC = () => {
           <Route path='/' component={ UsersContainer }/>
         </Switch>
         <Sidebar
-          onSearchByNameChange={ () => {} }
-          onSearchByEmailChange={ () => {} }
+          onSearchByNameChange={ (text) => dispatch(onSearchByNameChangeAction(text)) }
+          onSearchByEmailChange={ (text) => dispatch(onSearchByEmailChangeAction(text)) }
+          onSortByNameClick = { () => dispatch(sortByNameAction()) }
+          onSortByEmailClick = { () => dispatch(sortByEmailAction()) }
           onAddUserClick={ () => {} }
         />
       </ContentContainer>
