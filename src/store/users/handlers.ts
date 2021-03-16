@@ -1,17 +1,24 @@
 import * as api from './api';
 import usersActions from './slice';
+import { IUsersItem } from './types';
 
-export const setUsersAction: any = () => (dispatch: any) => api.usersApi()
-  .then((data: any) => dispatch(usersActions.setUsersSuccess({data})));
+type ISetUsersAction = () => any;
 
-export const onSearchByNameChangeAction: any = (text: string) => (dispatch: any) =>
+export const setUsersAction: ISetUsersAction = () => (dispatch: any) => api.usersApi()
+  .then((data: IUsersItem[]) => dispatch(usersActions.setUsersSuccess({data})));
+
+type IOnSearchChangeAction = (text: string) => void;
+
+export const onSearchByNameChangeAction: IOnSearchChangeAction = (text) => (dispatch: any) =>
   dispatch(usersActions.setOnSearchByNameChange({text}));
 
-export const onSearchByEmailChangeAction: any = (text: string) => (dispatch: any) =>
+export const onSearchByEmailChangeAction: IOnSearchChangeAction = (text) => (dispatch: any) =>
   dispatch(usersActions.setOnSearchByEmailChange({text}));
 
-export const sortByNameAction: any = () => (dispatch: any) =>
+type ISortAction = () => void;
+
+export const sortByNameAction: ISortAction = () => (dispatch: any) =>
   dispatch(usersActions.sortByName());
 
-export const sortByEmailAction: any = () => (dispatch: any) =>
+export const sortByEmailAction: ISortAction = () => (dispatch: any) =>
   dispatch(usersActions.sortByEmail());

@@ -1,3 +1,5 @@
 import { apiService } from '../../services';
 
-export const usersApi: any = () => apiService.get('users').then( (response) => response.data);
+type IUsersApi = () => Promise<any>
+
+export const usersApi: IUsersApi = () => apiService.get('users').then( (response) => response.data);

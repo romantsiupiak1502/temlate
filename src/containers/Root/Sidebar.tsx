@@ -59,10 +59,10 @@ export const Sidebar: React.FC<ISidebarProps> = props => {
       />
       <InputStyled
         placeholder={t("SEARCH_BY_NAME")}
-        onChange={ (event: any) => onSearchByNameChange(event.target.value) }/>
+        onChange={ (event: React.ChangeEvent<HTMLInputElement>) => onSearchByNameChange(event.target.value) }/>
       <InputStyled
         placeholder={t("SEARCH_BY_EMAIL")}
-        onChange={ (event: any) => onSearchByEmailChange(event.target.value) }/>
+        onChange={ (event: React.ChangeEvent<HTMLInputElement>) => onSearchByEmailChange(event.target.value) }/>
       <SortButton>
         <Dropdown
           items={ getDropdownItems( onSortByNameClick, onSortByEmailClick, t) }
