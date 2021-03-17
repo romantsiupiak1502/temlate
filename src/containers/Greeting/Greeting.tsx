@@ -40,17 +40,24 @@ const Picture = styled.img`
   height: 600px;
 `;
 
-export const Greeting = () => {
+interface IGreetingProps {
+  onLoginClick: (email: string, password: string, toggleIsShowError: () => void) => void;
+  onSignUpClick:
+    (name: string, surname: string, email: string, password: string, toggleIsShowError: () => void, isCheckout: () => void) => void;
+}
+
+export const Greeting:  React.FC<IGreetingProps> = props => {
+  const { onLoginClick, onSignUpClick } = props;
   const { t } = useTranslation();
 
-  const [activeTab, setActiveTab] = React.useState(LoginRegistrationConst.LOGIN);
+  const [activeTab, setActiveTab] = React.useState<string>(LoginRegistrationConst.LOGIN);
 
   const activeForm = React.useMemo(() => {
     switch (activeTab) {
       case LoginRegistrationConst.LOGIN:
-        return <LoginForm />
+        return <LoginForm onLoginClick={ onLoginClick }/>
       case LoginRegistrationConst.REGISTRATION:
-        return <RegistrationForm />
+        return <RegistrationForm checkoutToLogin={ setActiveTab } onSignUpClick={ onSignUpClick } />
     }
   }, [activeTab]);
 

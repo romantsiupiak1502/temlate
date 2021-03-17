@@ -13,4 +13,6 @@ export const localStorageService = () => {
   const removeItem: IRemoveItem = (key: string) => {
     window.localStorage.removeItem(key);
   };
+
+  return { setItem, getItem, removeItem };
 };

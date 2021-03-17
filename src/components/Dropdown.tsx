@@ -53,7 +53,7 @@ export const Dropdown: React.FC<IDropdownProps> = props => {
         onClose={ handleClose }
       >
         { items.map((item) =>
-          <MenuItem onClick={ handleClose }>
+          <MenuItem onClick={ handleClose } key={item.text}>
             <IconTextButton
               text={ item.text }
               icon={ item.icon }
