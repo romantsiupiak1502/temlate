@@ -17,6 +17,6 @@ export type IUsersItem = {
 export type IUsersStore = {
   users: IUsersItem[],
   searchUsers: IUsersItem[],
-  onSearchByNameChange: string,
-  onSearchByEmailChange: string,
+  searchByName: string,
+  searchByEmail: string,
 }

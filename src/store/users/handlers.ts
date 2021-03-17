@@ -1,24 +1,30 @@
+import { Dispatch } from 'react';
 import * as api from './api';
 import usersActions from './slice';
 import { IUsersItem } from './types';
 
-type ISetUsersAction = () => any;
+type IHandleSetUsersAction = () => void;
 
-export const setUsersAction: ISetUsersAction = () => (dispatch: any) => api.usersApi()
+interface IDispatchType {
+  type: string,
+  payload?: any,
+}
+
+export const setUsersAction: IHandleSetUsersAction = () => (dispatch: Dispatch<IDispatchType>) => api.usersApi()
   .then((data: IUsersItem[]) => dispatch(usersActions.setUsersSuccess({data})));
 
-type IOnSearchChangeAction = (text: string) => void;
+type IHandleOnSearchChangeAction = (text: string) => void;
 
-export const onSearchByNameChangeAction: IOnSearchChangeAction = (text) => (dispatch: any) =>
+export const onSearchByNameChangeAction: IHandleOnSearchChangeAction = (text) => (dispatch: Dispatch<IDispatchType>) =>
   dispatch(usersActions.setOnSearchByNameChange({text}));
 
-export const onSearchByEmailChangeAction: IOnSearchChangeAction = (text) => (dispatch: any) =>
+export const onSearchByEmailChangeAction: IHandleOnSearchChangeAction = (text) => (dispatch: Dispatch<IDispatchType>) =>
   dispatch(usersActions.setOnSearchByEmailChange({text}));
 
-type ISortAction = () => void;
+type IHandleSortAction = () => void;
 
-export const sortByNameAction: ISortAction = () => (dispatch: any) =>
+export const sortByNameAction: IHandleSortAction = () => (dispatch: Dispatch<IDispatchType>) =>
   dispatch(usersActions.sortByName());
 
-export const sortByEmailAction: ISortAction = () => (dispatch: any) =>
+export const sortByEmailAction: IHandleSortAction = () => (dispatch: Dispatch<IDispatchType>) =>
   dispatch(usersActions.sortByEmail());

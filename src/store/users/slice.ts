@@ -7,20 +7,20 @@ const slice = createSlice({
   initialState: {
     users: [],
     searchUsers: [],
-    onSearchByNameChange: '',
-    onSearchByEmailChange: '',
+    searchByName: '',
+    searchByEmail: '',
   } as IUsersStore,
   reducers: {
     setUsersSuccess: (state, action) => {
       state.users = action.payload.data;
     },
     setOnSearchByNameChange: (state, action) => {
-      state.onSearchByNameChange = action.payload.text;
-      state.searchUsers = state.users.filter( (item) => item.name.toLowerCase().includes(state.onSearchByNameChange));
+      state.searchByName = action.payload.text;
+      state.searchUsers = state.users.filter( (item) => item.name.toLowerCase().includes(state.searchByName.toLowerCase()));
     },
     setOnSearchByEmailChange: (state, action) => {
-      state.onSearchByEmailChange = action.payload.text;
-      state.searchUsers = state.users.filter( (item) => item.email.toLowerCase().includes(state.onSearchByEmailChange));
+      state.searchByEmail = action.payload.text;
+      state.searchUsers = state.users.filter( (item) => item.email.toLowerCase().includes(state.searchByEmail.toLowerCase()));
     },
     sortByName: (state) => {
       state.users.sort( (a, b) => a.name > b.name ? 1 : -1);
