@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
+import { IUsersItem } from '../../store/users';
 
 import { UserCard } from './UserCard';
 import { UserModalContent } from './UserModalContent';
-import { IUsersItem } from './index';
 
 const Wrapper = styled.div`
   display: flex;

@@ -5,9 +5,9 @@ import { styled } from '../../styles';
 import { UserAvatar } from '../../components';
 import { UserAvatarConst } from '../../consts';
 import { stringUtil } from '../../utils';
+import { IUsersItem } from '../../store/users';
 
 import { UserInfoRow } from './UserInfoRow';
-import { IUsersItem } from './index';
 
 const Wrapper = styled.div`
   width: 300px;
