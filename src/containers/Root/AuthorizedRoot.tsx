@@ -1,10 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { IStore } from "store/types";
 
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
 import { languageService } from '../../services';
+import { handleLogoutAction } from '../../store/auth';
 
 import { UsersContainer } from '../Users';
 
@@ -25,6 +28,8 @@ const ContentContainer = styled.div`
 
 export const AuthorizedRoot: React.FC = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state: IStore) => state.auth)
   const { openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal } = useModal();
   const { openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal } = useModal();
 
@@ -33,7 +38,7 @@ export const AuthorizedRoot: React.FC = () => {
       <Header
         onLogoutClick={ openLogoutModal }
         onChangeLanguage={ openLanguageModal }
-        userName='Roman Tsiuapiak'
+        userName={`${currentUser.name} ${currentUser.surname}`}
       />
       <ContentContainer>
         <Switch>
@@ -46,7 +51,7 @@ export const AuthorizedRoot: React.FC = () => {
         />
       </ContentContainer>
       <LogoutModal title={t("DO_YOU_WANT_TO_LOGOUT")}>
-        <LogoutModalContent onCancelClick={ closeLogoutModal } onConfirmClick={ closeLogoutModal }/>
+        <LogoutModalContent onCancelClick={ closeLogoutModal } onConfirmClick={ () => dispatch(handleLogoutAction()) }/>
       </LogoutModal>
       <LanguageModal title={t("CHANGE_LANGUAGE")} isClosable={true}>
         <LanguageModalContent onLanguageChangeClick={ language => {

@@ -34,6 +34,8 @@
     "CHANGE_LANGUAGE": "Change language",
     "USER_PROFILE": "User profile",
     "en": "English",
-    "ua": "Українська"
-    }
+    "ua": "Українська",
+    "EXIST_USER_ERROR_MESSAGE": "User do not exist",
+    "EMAIL_ALREADY_EXIST": "This email already exist"
+  }
 }

@@ -34,6 +34,8 @@
     "CHANGE_LANGUAGE": "Змінити мову",
     "USER_PROFILE": "Профіль користувача",
     "en": "English",
-    "ua": "Українська"
+    "ua": "Українська",
+    "EXIST_USER_ERROR_MESSAGE": "Такого користувача не існує",
+    "EMAIL_ALREADY_EXIST": "Обліковий запис з таким емейлом вже існує"
   }
 }
