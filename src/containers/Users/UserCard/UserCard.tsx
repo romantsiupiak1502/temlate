@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styled } from '../../../styles';
+import { device, styled } from '../../../styles';
 
 import { UserAvatarBlock } from './UserAvatarBlock';
 import { UserInfoBlock } from './UserInfoBlock';
@@ -20,6 +20,15 @@ const UserCardWrapper = styled.div`
 
   &:hover {
     border-color: ${ ({ theme }) => theme.colors.gray };
+  }
+
+  @media ${device.laptop} {
+    max-width: 450px;
+  }
+  @media ${device.tablet} {
+    flex-direction: column;
+    width: 270px;
+    height: 350px;
   }
 `;
 

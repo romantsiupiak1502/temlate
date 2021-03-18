@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { styled } from '../../styles';
+import { device, styled } from '../../styles';
 import {
   IconTextButton,
   PlusIcon,
@@ -28,6 +28,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 16px;
+
+  @media ${device.mobileXL} {
+    display: none;
+  }
 `;
 
 const InputStyled = styled(Input)`
