@@ -10,6 +10,7 @@ import { IUsersItem } from './index';
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   height: calc(100vh - 75px);
   overflow-y: scroll;

@@ -6,3 +6,4 @@ export { IoLanguageSharp as LanguageIcon } from 'react-icons/io5';
 export { IoAdd as PlusIcon } from 'react-icons/io5';
 export { HiOutlineUser as UserIcon } from 'react-icons/hi';
 export { MdEmail as EmailIcon } from 'react-icons/md';
+export { GiHamburgerMenu as BurgerMenuIcon } from 'react-icons/gi';

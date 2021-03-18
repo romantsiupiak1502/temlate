@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { LoginLandscapeImage } from '../../assets';
 import { TabsContainer, Tab, H4} from '../../components';
 import { LoginRegistrationConst } from '../../consts';
-import { styled } from '../../styles';
+import { device, styled } from '../../styles';
 
 import { RegistrationForm } from './RegistrationForm';
 import { LoginForm } from './LoginForm';
@@ -17,15 +17,24 @@ const Wrapper = styled.div`
   box-shadow: 5px 5px 5px gray;
   border: 1px solid ${({theme})=>theme.colors.black};
   background-color: ${({theme})=> theme.colors.white};
+
+  @media ${device.laptop} {
+    max-width: 700px;
+    margin: 20px;
+  }
 `;
 
 const InputWrapper = styled.div`
-  width: 500px;
-  height: 600px;
+  width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
 
 const AboutUsLink = styled(Link)`
@@ -38,6 +47,13 @@ const AboutUsLink = styled(Link)`
 const Picture = styled.img`
   width: 500px;
   height: 600px;
+  
+  @media ${device.laptop} {
+    width: 350px;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 export const Greeting = () => {
