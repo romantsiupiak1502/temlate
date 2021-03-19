@@ -14,6 +14,16 @@ export type IUsersItem = {
   website: string,
 }
 
+export type IAddUserType = {
+  name: string,
+  surname: string,
+  email: string,
+  city: string,
+  street: string,
+  phone: string,
+  website: string,
+}
+
 export type IUsersStore = {
   users: IUsersItem[],
   searchUsers: IUsersItem[],

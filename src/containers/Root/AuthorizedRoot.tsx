@@ -6,7 +6,14 @@ import { useTranslation } from 'react-i18next';
 import { styled } from '../../styles';
 import { useModal } from '../../hooks';
 import { languageService } from '../../services';
-import { onSearchByNameChangeAction, onSearchByEmailChangeAction, sortByNameAction, sortByEmailAction } from '../../store/users';
+import {
+  onSearchByNameChangeAction,
+  onSearchByEmailChangeAction,
+  sortByNameAction,
+  sortByEmailAction,
+  handleAddUserAction,
+  IAddUserType
+} from '../../store/users';
 
 import { UsersContainer } from '../Users';
 
@@ -14,6 +21,7 @@ import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { LogoutModalContent } from './LogoutModalContent';
 import { LanguageModalContent } from './LanguageModalContent';
+import { AddUserModalContent } from './AddUserModalContent';
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,6 +38,7 @@ export const AuthorizedRoot: React.FC = () => {
   const { t } = useTranslation();
   const { openModal: openLogoutModal, closeModal: closeLogoutModal, Modal: LogoutModal } = useModal();
   const { openModal: openLanguageModal, closeModal: closeLanguageModal, Modal: LanguageModal } = useModal();
+  const { openModal: openAddUserModal, closeModal: closeAddUserModal, Modal: AddUserModal } = useModal();
 
   return (
     <Wrapper>
@@ -45,21 +54,28 @@ export const AuthorizedRoot: React.FC = () => {
         <Sidebar
           onSearchByNameChange={ (text) => dispatch(onSearchByNameChangeAction(text)) }
           onSearchByEmailChange={ (text) => dispatch(onSearchByEmailChangeAction(text)) }
-          onSortByNameClick = { () => dispatch(sortByNameAction()) }
-          onSortByEmailClick = { () => dispatch(sortByEmailAction()) }
-          onAddUserClick={ () => {} }
+          onSortByNameClick={ () => dispatch(sortByNameAction()) }
+          onSortByEmailClick={ () => dispatch(sortByEmailAction()) }
+          onAddUserClick={ openAddUserModal }
         />
       </ContentContainer>
-      <LogoutModal title={t("DO_YOU_WANT_TO_LOGOUT")}>
+      <LogoutModal title={ t("DO_YOU_WANT_TO_LOGOUT") }>
         <LogoutModalContent onCancelClick={ closeLogoutModal } onConfirmClick={ closeLogoutModal }/>
       </LogoutModal>
-      <LanguageModal title={t("CHANGE_LANGUAGE")} isClosable={true}>
+      <LanguageModal title={ t("CHANGE_LANGUAGE") } isClosable={ true }>
         <LanguageModalContent onLanguageChangeClick={ language => {
           languageService.changeLanguage(language);
           closeLanguageModal();
         } }
         />
       </LanguageModal>
+      <AddUserModal title={t("ADD_USER")} isClosable={ true }>
+        <AddUserModalContent
+          onSubmitButtonClick={ (values: IAddUserType) =>
+            dispatch(handleAddUserAction(values))}
+          closeAddUserModal={ closeAddUserModal }
+        />
+      </AddUserModal>
     </Wrapper>
   );
 };

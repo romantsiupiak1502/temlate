@@ -10,8 +10,10 @@ import { UserModalContent } from './UserModalContent';
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   height: calc(100vh - 75px);
+  width: calc(100vw - 240px);
   overflow-y: scroll;
 `;
 

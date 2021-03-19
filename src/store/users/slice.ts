@@ -28,6 +28,23 @@ const slice = createSlice({
     sortByEmail: (state) => {
       state.users.sort( (a, b) => a.email > b.email ? 1 : -1);
     },
+    addUser: (state, action) => {
+      const { name, surname, email, city, street, phone, website } = action.payload.values;
+      const user = {
+        id: state.users.length + 1,
+        name: `${name} ${surname}`,
+        email: email,
+        address: {
+          city: city,
+          street: street,
+          suite: '',
+          zipcode: '',
+        },
+        phone: phone,
+        website: website,
+      };
+      state.users.push(user);
+    },
   }
 });
 

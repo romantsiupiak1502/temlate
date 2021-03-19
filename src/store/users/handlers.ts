@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import * as api from './api';
 import usersActions from './slice';
-import { IUsersItem } from './types';
+import { IUsersItem, IAddUserType } from './types';
 
 type IHandleSetUsersAction = () => void;
 
@@ -28,3 +28,8 @@ export const sortByNameAction: IHandleSortAction = () => (dispatch: Dispatch<IDi
 
 export const sortByEmailAction: IHandleSortAction = () => (dispatch: Dispatch<IDispatchType>) =>
   dispatch(usersActions.sortByEmail());
+
+type IHandleAddUserActionType = (values: IAddUserType) => void;
+
+export const handleAddUserAction: IHandleAddUserActionType = (values) => (dispatch: Dispatch<IDispatchType>) =>
+  dispatch(usersActions.addUser({values}));
