@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { styled } from '../../styles';
+import { device, styled } from '../../styles';
 import { H1, H3, IconTextButton, LeftArrowIcon } from '../../components';
 import { AboutUsTeamImage } from '../../assets';
 
@@ -11,6 +11,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media ${device.laptopL} {
+    width: 1000px;
+  }
+  @media ${device.laptop} {
+    margin: 20px;
+  }
 `;
 
 const TitleBackButtonContainer = styled.div`
@@ -21,6 +28,10 @@ const TitleWrapper = styled(H1)`
   font-size: 300%;
   width: 100%;
   text-align: center;
+
+  @media ${device.laptop} {
+    font-size: 200%;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -28,6 +39,16 @@ const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media ${device.laptop} {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media ${device.tablet} {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const BackButton = styled(Link)`
@@ -35,8 +56,18 @@ const BackButton = styled(Link)`
   text-decoration: none;
 `;
 
+const TeamPictureStyled = styled.img`
+  width: 563px;
+  height: 375px;
+
+  @media ${device.laptop} {
+    width: 394px;
+    height: 263px;
+  }
+`;
+
 const AboutUsWrapper = styled.div`
-  width: 600px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   background-color: ${ ({ theme }) => theme.colors.primary };
@@ -64,7 +95,7 @@ export const AboutUs: React.FC = () => {
           <H1>About us</H1>
           <H3>{ t("TEXT_ABOUT_US") }</H3>
         </AboutUsWrapper>
-        <img src={ AboutUsTeamImage }/>
+        <TeamPictureStyled src={ AboutUsTeamImage }/>
       </ContentWrapper>
     </Wrapper>
   );

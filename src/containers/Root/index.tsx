@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { IStore } from '../../store/types';
-import { styled } from '../../styles';
+import { styled, device } from '../../styles';
 
 import { AuthorizedRoot } from './AuthorizedRoot';
 import { UnauthorizedRoot } from "./UnauthorizedRoot";
@@ -13,6 +13,13 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  @media ${device.laptopL} {
+    max-width: 100%;
+  }
+  @media ${device.desktop} {
+    max-width: 100%;
+  }
 `;
 
 export const Root = () => {

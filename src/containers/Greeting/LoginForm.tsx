@@ -7,12 +7,11 @@ import { Button, InputField, PasswordInputField } from "../../components";
 import { formErrorUtil } from '../../utils';
 
 const PasswordInputStyled = styled(PasswordInputField)`
-  margin-top: 16px;
-  width: 388px;
+  width: 92%;
 `;
 
 export const InputFieldStyled = styled(InputField)`
-  width: 388px;
+  width: 92%;
 `;
 
 export const SubmitButton = styled(Button)`
@@ -20,8 +19,8 @@ export const SubmitButton = styled(Button)`
 `;
 
 export const FormStyled = styled(Form)`
-  width: 420px;
-  height: 600px;
+  width: 84%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
