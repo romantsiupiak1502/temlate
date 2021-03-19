@@ -39,13 +39,15 @@ const SortButton = styled.div`
 `;
 
 interface ISidebarProps {
-  onSearchByNameChange: () => void;
-  onSearchByEmailChange: () => void;
+  onSearchByNameChange: (text: string) => void;
+  onSearchByEmailChange: (text: string) => void;
+  onSortByNameClick: () => void;
+  onSortByEmailClick: () => void;
   onAddUserClick: () => void;
 }
 
 export const Sidebar: React.FC<ISidebarProps> = props => {
-  const { onSearchByNameChange, onSearchByEmailChange, onAddUserClick } = props;
+  const { onSearchByNameChange, onSearchByEmailChange, onAddUserClick, onSortByNameClick, onSortByEmailClick } = props;
   const { t } = useTranslation();
 
   return (
@@ -55,11 +57,15 @@ export const Sidebar: React.FC<ISidebarProps> = props => {
         icon={ <PlusIcon size='25px'/> }
         onClick={ onAddUserClick }
       />
-      <InputStyled placeholder={t("SEARCH_BY_NAME")} onChange={ onSearchByNameChange }/>
-      <InputStyled placeholder={t("SEARCH_BY_EMAIL")} onChange={ onSearchByEmailChange }/>
+      <InputStyled
+        placeholder={t("SEARCH_BY_NAME")}
+        onChange={ (event: React.ChangeEvent<HTMLInputElement>) => onSearchByNameChange(event.target.value) }/>
+      <InputStyled
+        placeholder={t("SEARCH_BY_EMAIL")}
+        onChange={ (event: React.ChangeEvent<HTMLInputElement>) => onSearchByEmailChange(event.target.value) }/>
       <SortButton>
         <Dropdown
-          items={ getDropdownItems(() => {}, () => {}, t) }
+          items={ getDropdownItems( onSortByNameClick, onSortByEmailClick, t) }
           Component={ <IconTextButton
             text={t("SORT")}
             icon={ <DownArrowIcon size='15px'/> }

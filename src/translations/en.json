@@ -23,6 +23,8 @@
     "LANGUAGE": "Language",
     "SORT_BY_NAME": "Sort by name",
     "SORT_BY_EMAIL": "Sort by email",
+    "NAME": "name",
+    "SURNAME": "surname",
     "EMAIL": "Email",
     "STREET": "Street",
     "PHONE": "Phone",
@@ -34,6 +36,7 @@
     "CHANGE_LANGUAGE": "Change language",
     "USER_PROFILE": "User profile",
     "en": "English",
-    "ua": "Українська"
+    "ua": "Українська",
+    "ADD": "Add"
     }
 }
